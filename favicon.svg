@@ -1,0 +1,9 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <clipPath id="clip">
+      <circle cx="64" cy="64" r="60" />
+    </clipPath>
+  </defs>
+  <circle cx="64" cy="64" r="62" fill="#ffffff" />
+  <image href="images/riani3.jpg" x="0" y="0" width="128" height="128" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip)" />
+</svg>
