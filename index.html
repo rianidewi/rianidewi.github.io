@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Riani Dewi | Software Engineer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-grid"></div>
+
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand-mark">RD</span>
+        <div>
+          <p class="brand-title">Riani Dewi</p>
+          <p class="brand-subtitle">Software Developer</p>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="http://localhost:8085/demo">Try Demo</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="about">
+        <div class="hero-text">
+          <p class="eyebrow">Portfolio Portal</p>
+          <h1>
+            Building workflow-driven apps with a pragmatic, detail-first
+            mindset.
+          </h1>
+          <p class="lead">
+            I'm a software engineer from Indonesia. I design and
+            ship enterprise workflows, billing, and approval systems built on
+            Intramart and surrounding services.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn ghost" href="#contact">Get in Touch</a>
+          </div>
+          <div class="hero-meta">
+            <div>
+              <p class="meta-label">Focus</p>
+              <p>Workflow automation, enterprise web applications, system integration</p>
+            </div>
+            <div>
+              <p class="meta-label">Stack</p>
+              <p>Java, Spring MVC, SQL (PostgreSQL, SQL Server), REST APIs</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <p class="card-title">Highlighted Systems</p>
+          <ul class="">
+            <li>Service Invoice workflow with approval routing</li>
+            <li>Portal invoicing for GR-based billing</li>
+            <li>Paperless payment flow with audit trace</li>
+          </ul>
+          <p class="card-footnote">
+            Each project listed below is an Intramart app. Source is available
+            in this repository.
+          </p>
+        </div>
+      </section>
+
+      <section class="projects" id="projects">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p>
+            Centralized view of Intramart workflows. Each card links to the
+            project folder in this repo.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>Service Invoice</h3>
+            <p>
+              Workflow for service billing, approval, and invoice lifecycle
+              tracking.
+            </p>
+            <div class="chip-row">
+              <span>Intramart</span>
+              <span>Workflow</span>
+            </div>
+            <a class="card-link" href="MMKI_Service_Invoice/src">Open Source</a>
+          </article>
+
+          <article class="project-card">
+            <h3>Portal (GR) Invoicing</h3>
+            <p>
+              GR-based invoicing portal with data intake, validation, and
+              settlement steps.
+            </p>
+            <div class="chip-row">
+              <span>Intramart</span>
+              <span>Invoicing</span>
+            </div>
+            <a class="card-link" href="MMKI_Portal_Invoicing/src">Open Source</a>
+          </article>
+
+          <article class="project-card">
+            <h3>Paperless Payment</h3>
+            <p>
+              Digital payment workflow with approvals, status tracking, and
+              audit trail.
+            </p>
+            <div class="chip-row">
+              <span>Intramart</span>
+              <span>Finance</span>
+            </div>
+            <a class="card-link" href="MMKI_Paperless_Payment/src">Open Source</a>
+          </article>
+
+          <article class="project-card">
+            <h3>Budget Input</h3>
+            <p>
+              Budget capture workflow supporting validation, versioning, and
+              review.
+            </p>
+            <div class="chip-row">
+              <span>Intramart</span>
+              <span>Planning</span>
+            </div>
+            <a class="card-link" href="MMKI_Budget_Input/src">Open Source</a>
+          </article>
+
+          <article class="project-card">
+            <h3>Purchase Request</h3>
+            <p>
+              Purchase request lifecycle with approvals, costing, and status
+              updates.
+            </p>
+            <div class="chip-row">
+              <span>Intramart</span>
+              <span>Procurement</span>
+            </div>
+            <a class="card-link" href="AFI_Purchase_Request/src">Open Source</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- <section class="setup" id="setup">
+        <div class="section-head">
+          <h2>Local Database Notes</h2>
+          <p>
+            If you want to run these apps, you will need a local Postgres
+            database and the Intramart runtime. This site itself is static and
+            does not require a database.
+          </p>
+        </div>
+
+        <div class="setup-card">
+          <p class="setup-title">Suggested local database</p>
+          <pre><code>-- Database: local
+
+-- DROP DATABASE IF EXISTS local;
+
+CREATE DATABASE local
+    WITH
+    OWNER = imart
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_Indonesia.1252'
+    LC_CTYPE = 'English_Indonesia.1252'
+    LOCALE_PROVIDER = 'libc'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+</code></pre>
+          <p class="setup-footnote">
+            Credentials: user `imart`, password `imart`.
+          </p>
+        </div>
+      </section> -->
+
+      <section class="contact" id="contact">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>
+            Want to collaborate or review the projects? Let's connect.
+          </p>
+        </div>
+        <div class="contact-grid">
+          <div>
+            <p class="contact-label">Email</p>
+            <p class="contact-value">sitinurfitrianidewi@gmail.com</p>
+          </div>
+          <div>
+            <p class="contact-label">LinkedIn</p>
+            <p class="contact-value">https://www.linkedin.com/in/rianidewi</p>
+          </div>
+          <div>
+            <p class="contact-label">Location</p>
+            <p class="contact-value">Indonesia</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Riani Dewi. Built with care and clarity.</p>
+    </footer>
+  </body>
+</html>
