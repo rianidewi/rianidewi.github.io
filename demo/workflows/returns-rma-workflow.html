@@ -1,0 +1,808 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Returns / RMA Demo</title>
+    <link rel="stylesheet" href="../../demo.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">Returns / RMA</div>
+      <nav>
+        <a class="nav-link" href="../../index.html">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3l9 8h-3v9h-5v-5H11v5H6v-9H3l9-8z"/>
+          </svg>
+          <span>Home</span>
+        </a>
+        <a class="nav-link" href="../index.html">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-4l-3 3-3-3H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm3 6h8v2H8v-2zm0-3h8v2H8V7z"/>
+          </svg>
+          <span>Workflow List</span>
+        </a>
+      </nav>
+    </header>
+
+    <main class="app-shell">
+      <section class="hero">
+        <h1>Returns / RMA</h1>
+        <p class="muted">Return request approvals, receiving, inspection, and credit note.</p>
+      </section>
+      <section class="card guidance-card">
+        <details id="guidanceBox">
+          <summary>How to Try This Workflow</summary>
+          <ol id="guidanceList" class="guidance-list"></ol>
+        </details>
+      </section>
+      <section class="app-grid">
+        <div class="app-main">
+          <section class="card demo-card" data-stages="Return Requested||Approved||Item Received||Inspection Complete||Credit Issued" data-slug="returns-rma-workflow">
+            <div class="demo-status">
+              <div>
+                <p class="muted">Current Stage</p>
+                <h2 id="currentStage" class="stage-title">Stage</h2>
+                <p class="muted" id="currentApprover">Approval: -</p>
+              </div>
+              <span class="stage-pill" id="stageIndex">1 / 5</span>
+            </div>
+          </section>
+
+          <section class="card demo-form">
+            <h3>Create Request</h3>
+            <p class="muted">Create a sample request to see how it moves through the workflow.</p>
+            <form id="requestForm" class="form">
+              <label>
+                <span id="labelTitle">Request Title</span>
+                <input type="text" name="title" id="fieldTitle" placeholder="e.g. Office Laptop Purchase" required />
+              </label>
+              <label>
+                <span id="labelOwner">Owner</span>
+                <input type="text" name="owner" id="fieldOwner" placeholder="e.g. Riani Dewi" required />
+              </label>
+              <label>
+                <span id="labelAmount">Amount</span>
+                <input type="number" name="amount" id="fieldAmount" placeholder="e.g. 1250000" min="0" step="1" required />
+              </label>
+              <div id="extraFields" class="extra-fields"></div>
+              <label>
+                <span id="labelNotes">Notes</span>
+                <input type="text" name="notes" id="fieldNotes" placeholder="Optional notes for approvers" />
+              </label>
+              <div class="actions">
+                <button class="btn" type="submit">Create Request</button>
+                <button class="btn secondary" type="button" id="seedBtn">Load Samples</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="card">
+            <div class="list-header section-divider">
+              <h3>Requests</h3>
+              <div class="list-actions">
+                <input type="text" id="requestFilter" class="filter-input" placeholder="Search requests..." />
+                <button class="btn secondary" type="button" id="clearBtn">Clear All</button>
+              </div>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th id="refHeader" class="ref-col">PR Number</th>
+                  <th>Request</th>
+                  <th>Owner</th>
+                  <th>Stage</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="requestTable">
+                <tr>
+                  <td colspan="6" class="muted">No requests yet. Create one above.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="card detail-card" id="detailCard" hidden>
+            <div class="list-header">
+              <h3>Request Detail</h3>
+              <button class="btn secondary" type="button" id="closeDetail">Close</button>
+            </div>
+            <table class="table detail-table" id="detailTable">
+              <tbody>
+                <tr>
+                  <th id="detailLabelTitle">Title</th>
+                  <td id="detailTitle">Title</td>
+                </tr>
+                <tr>
+                  <th id="detailLabelOwner">Owner</th>
+                  <td id="detailOwner">Owner</td>
+                </tr>
+                <tr>
+                  <th id="detailLabelAmount">Amount</th>
+                  <td id="detailAmount">Rp 0</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table detail-table detail-extra" id="detailExtras"></table>
+            <table class="table detail-table detail-table-stage" id="detailFooter" hidden>
+              <tbody>
+                <tr>
+                  <th>Notes</th>
+                  <td id="detailNotes">-</td>
+                </tr>
+                <tr>
+                  <th>Stage</th>
+                  <td><span id="detailStage" class="detail-stage">Stage</span></td>
+                </tr>
+                <tr>
+                  <th>Status Workflow</th>
+                  <td><span id="detailStatus" class="detail-stage">In Progress</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="detail-actions" id="detailActions" hidden>
+              <button class="btn" type="button" id="detailApprove">Approve</button>
+              <button class="btn secondary" type="button" id="detailReset">Reset</button>
+            </div>
+            <div class="audit-block" id="detailAuditBlock" hidden>
+              <details open>
+                <summary>Audit Trail</summary>
+                <ul id="detailAudit"></ul>
+              </details>
+            </div>
+          </section>
+        </div>
+
+        <aside class="app-side">
+          <section class="card">
+            <h3>Workflow Stages</h3>
+            <div class="stage-list" id="stageList">
+              
+            </div>
+          </section>
+        </aside>
+      </section>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </main>
+
+    <script>
+      (function () {
+        var card = document.querySelector('.demo-card');
+        if (!card) return;
+        var raw = card.getAttribute('data-stages') || '';
+        var slug = card.getAttribute('data-slug') || 'workflow';
+        var stages = raw.split('||').filter(function (s) { return s; });
+        var current = 0;
+        var selectedId = null;
+        var workflowConfig = {
+          'procure-to-pay-workflow': {
+            titleLabel: 'Request Title',
+            ownerLabel: 'Requester',
+            amountLabel: 'Total Amount',
+            extraFields: [
+              { name: 'prNumber', label: 'PR Number', placeholder: 'PR-2026-001', required: true },
+              { name: 'supplier', label: 'Preferred Supplier', placeholder: 'e.g. PT Nusantara' },
+              { name: 'department', label: 'Department', placeholder: 'e.g. Finance' }
+            ],
+            approvalRoute: {
+              'Purchase Requisition': 'Requester',
+              'PO Approved': 'Department Head',
+              'Goods Receipt': 'Warehouse / Receiving',
+              'Invoice Matched': 'Finance AP',
+              'Payment Released': 'Finance Manager'
+            },
+            guidance: [
+              'Create a requisition with PR number, supplier, and department.',
+              'Use â€œLoad Samplesâ€ if you want instant data to explore.',
+              'Open the request detail from the list.',
+              'Click Approve to move through PO, GR, invoice match, then payment.',
+              'Check who approves each stage in the right panel.'
+            ],
+            seedSamples: [
+              { title: 'Office Equipment', owner: 'Finance Ops', amount: 24500000, notes: 'Urgent for Q2', prNumber: 'PR-2026-014', supplier: 'PT Nusantara', department: 'Finance' },
+              { title: 'Warehouse Racks', owner: 'Operations', amount: 8250000, notes: 'Expansion', prNumber: 'PR-2026-015', supplier: 'PT Logistik', department: 'Operations' }
+            ]
+          },
+          'order-to-cash-workflow': {
+            titleLabel: 'Sales Order',
+            ownerLabel: 'Account Owner',
+            amountLabel: 'Order Value',
+            extraFields: [
+              { name: 'customer', label: 'Customer', placeholder: 'e.g. PT Sejahtera' },
+              { name: 'channel', label: 'Sales Channel', placeholder: 'Direct / Distributor' },
+              { name: 'deliveryDate', label: 'Delivery Date', placeholder: '2026-03-10', type: 'date' }
+            ],
+            approvalRoute: {
+              'Sales Order': 'Sales Manager',
+              'Pick & Pack': 'Warehouse Lead',
+              'Delivery': 'Logistics Supervisor',
+              'Invoice Issued': 'Finance AR',
+              'Payment Received': 'Finance AR'
+            },
+            guidance: [
+              'Enter a sales order with customer, channel, and delivery date.',
+              'Use â€œLoad Samplesâ€ if you want instant data to explore.',
+              'Use Approve to move from order to delivery and invoicing.',
+              'Review approvals per stage on the right.'
+            ],
+            seedSamples: [
+              { title: 'SO-2026-112', owner: 'Sales Jakarta', amount: 15800000, notes: 'Priority delivery', customer: 'PT Sejahtera', channel: 'Direct', deliveryDate: '2026-03-10' },
+              { title: 'SO-2026-113', owner: 'Sales Bandung', amount: 9200000, notes: 'Standard terms', customer: 'PT Sentosa', channel: 'Distributor', deliveryDate: '2026-03-12' }
+            ]
+          },
+          'record-to-report-workflow': {
+            titleLabel: 'Journal Batch',
+            ownerLabel: 'Accounting Lead',
+            amountLabel: 'Journal Total',
+            extraFields: [
+              { name: 'period', label: 'Period', placeholder: '2026-02' },
+              { name: 'entity', label: 'Entity', placeholder: 'PT Riani Holdings' },
+              { name: 'reviewer', label: 'Reviewer', placeholder: 'Finance Manager' }
+            ],
+            approvalRoute: {
+              'Journal Entry': 'Accounting Lead',
+              'Manager Review': 'Finance Manager',
+              'Posting': 'Controller',
+              'Period Close': 'CFO Office',
+              'Financial Report': 'Executive Review'
+            },
+            guidance: [
+              'Create a journal batch with period and entity.',
+              'Use â€œLoad Samplesâ€ if you want instant data to explore.',
+              'Approve through review, posting, and period close.',
+              'Audit trail records each stage move.'
+            ],
+            seedSamples: [
+              { title: 'FEB Close Batch', owner: 'Accounting', amount: 482500000, notes: 'Awaiting review', period: '2026-02', entity: 'PT Riani Holdings', reviewer: 'Finance Manager' },
+              { title: 'Adjustment Batch', owner: 'Accounting', amount: 76000000, notes: 'Tax adjustment', period: '2026-02', entity: 'PT Riani Holdings', reviewer: 'Controller' }
+            ]
+          },
+          'hire-to-retire-workflow': {
+            titleLabel: 'Employee Case',
+            ownerLabel: 'HR Partner',
+            amountLabel: 'Monthly Salary',
+            extraFields: [
+              { name: 'candidate', label: 'Candidate', placeholder: 'e.g. Nadia Putri' },
+              { name: 'role', label: 'Role', placeholder: 'e.g. Finance Analyst' },
+              { name: 'startDate', label: 'Start Date', placeholder: '2026-04-01', type: 'date' }
+            ],
+            approvalRoute: {
+              'Hiring Approved': 'HR Manager',
+              'Offer Accepted': 'Hiring Manager',
+              'Onboarding': 'HR Ops',
+              'Payroll Active': 'Payroll Lead',
+              'Offboarding Complete': 'HR Manager'
+            },
+            guidance: [
+              'Create a candidate case with role and start date.',
+              'Use â€œLoad Samplesâ€ if you want instant data to explore.',
+              'Approve through onboarding and payroll.',
+              'Use the detail panel to see the approval owner.'
+            ],
+            seedSamples: [
+              { title: 'Hiring - Finance Analyst', owner: 'HR Ops', amount: 12000000, notes: 'Offer approved', candidate: 'Nadia Putri', role: 'Finance Analyst', startDate: '2026-04-01' },
+              { title: 'Onboarding - Ops Lead', owner: 'HR Ops', amount: 18500000, notes: 'Pending docs', candidate: 'Arif Nugroho', role: 'Ops Lead', startDate: '2026-03-20' }
+            ]
+          },
+          'inventory-replenishment-workflow': {
+            titleLabel: 'Replenishment Request',
+            ownerLabel: 'Planner',
+            amountLabel: 'Reorder Budget',
+            extraFields: [
+              { name: 'sku', label: 'SKU', placeholder: 'SKU-INV-2201' },
+              { name: 'warehouse', label: 'Warehouse', placeholder: 'Jakarta DC' },
+              { name: 'targetStock', label: 'Target Stock', placeholder: '1200' }
+            ],
+            approvalRoute: {
+              'Demand Signal': 'Planner',
+              'Reorder Planned': 'Supply Planning',
+              'PO Sent': 'Procurement Lead',
+              'Goods Receipt': 'Warehouse / Receiving',
+              'Stock Updated': 'Inventory Control'
+            },
+            guidance: [
+              'Create a replenishment request with SKU and warehouse.',
+              'Use â€œLoad Samplesâ€ if you want instant data to explore.',
+              'Approve through procurement and receiving.',
+              'Track the approval owner as stock updates.'
+            ],
+            seedSamples: [
+              { title: 'Reorder Packaging', owner: 'Supply Planning', amount: 6200000, notes: 'Low stock alert', sku: 'SKU-PACK-09', warehouse: 'Jakarta DC', targetStock: '1200' },
+              { title: 'Reorder Components', owner: 'Supply Planning', amount: 14500000, notes: 'Quarterly restock', sku: 'SKU-COMP-14', warehouse: 'Bandung DC', targetStock: '800' }
+            ]
+          },
+          'returns-rma-workflow': {
+            titleLabel: 'Return Case',
+            ownerLabel: 'Service Lead',
+            amountLabel: 'Refund Value',
+            extraFields: [
+              { name: 'rmaNumber', label: 'RMA Number', placeholder: 'RMA-2026-022' },
+              { name: 'customer', label: 'Customer', placeholder: 'PT Sinar Abadi' },
+              { name: 'reason', label: 'Return Reason', placeholder: 'Damaged goods' }
+            ],
+            approvalRoute: {
+              'Return Requested': 'Customer Care Lead',
+              'Approved': 'Service Manager',
+              'Item Received': 'Warehouse / Receiving',
+              'Inspection Complete': 'Quality Control',
+              'Credit Issued': 'Finance AR'
+            },
+            guidance: [
+              'Log a return case with RMA number and reason.',
+              'Use â€œLoad Samplesâ€ if you want instant data to explore.',
+              'Approve through inspection and credit issuance.',
+              'Review audit trail for each decision.'
+            ],
+            seedSamples: [
+              { title: 'Return - Batch 44', owner: 'Customer Care', amount: 2400000, notes: 'Inspection required', rmaNumber: 'RMA-2026-022', customer: 'PT Sinar Abadi', reason: 'Damaged goods' },
+              { title: 'Return - Batch 45', owner: 'Customer Care', amount: 1850000, notes: 'Replace item', rmaNumber: 'RMA-2026-023', customer: 'PT Maju Jaya', reason: 'Wrong item shipped' }
+            ]
+          }
+        };
+        var config = workflowConfig[slug] || {
+          titleLabel: 'Request Title',
+          ownerLabel: 'Owner',
+          amountLabel: 'Amount',
+          extraFields: [],
+          approvalRoute: {},
+          guidance: [],
+          seedSamples: []
+        };
+        var refField = null;
+
+        function renderStagePreview(stageOverride) {
+          var stage = stageOverride || stages[current] || '';
+          document.getElementById('currentStage').textContent = stage;
+          document.getElementById('stageIndex').textContent = (current + 1) + ' / ' + stages.length;
+          var approver = config.approvalRoute && config.approvalRoute[stage] ? config.approvalRoute[stage] : '-';
+          document.getElementById('currentApprover').textContent = 'Approval: ' + approver;
+          renderStageList(stage);
+        }
+
+        function renderStageList(currentStage) {
+          var container = document.getElementById('stageList');
+          if (!container) return;
+          container.innerHTML = '';
+          var currentIdx = stageToIndex(currentStage || stages[current] || stages[0]);
+          stages.forEach(function (stage, idx) {
+            var chip = document.createElement('span');
+            var isLast = idx === stages.length - 1;
+            var stateClass = idx < currentIdx ? 'is-done' : (idx === currentIdx ? (isLast ? 'is-done' : 'is-current') : 'is-next');
+            chip.className = 'stage-chip ' + stateClass;
+            var approver = config.approvalRoute && config.approvalRoute[stage] ? config.approvalRoute[stage] : '-';
+            chip.innerHTML = '<strong>' + stage + '</strong><br /><span class="muted">Approval: ' + approver + '</span>';
+            container.appendChild(chip);
+          });
+        }
+
+        function renderGuidance() {
+          var list = document.getElementById('guidanceList');
+          if (!list) return;
+          list.innerHTML = '';
+          var steps = config.guidance && config.guidance.length ? config.guidance : [
+            'Create or load a request.',
+            'Open the request detail from the list.',
+            'Use Approve to move through stages.'
+          ];
+          steps.forEach(function (step) {
+            var li = document.createElement('li');
+            li.textContent = step;
+            list.appendChild(li);
+          });
+        }
+
+        function getStoreKey() {
+          return 'workflow-demo-' + slug;
+        }
+
+        function loadRequests() {
+          var rawData = localStorage.getItem(getStoreKey());
+          if (!rawData) return [];
+          try {
+            return JSON.parse(rawData) || [];
+          } catch (e) {
+            return [];
+          }
+        }
+
+        function saveRequests(list) {
+          localStorage.setItem(getStoreKey(), JSON.stringify(list));
+        }
+
+        function formatAmount(amount) {
+          var num = Number(amount || 0);
+          return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(num);
+        }
+
+        function stageToIndex(stage) {
+          var idx = stages.indexOf(stage);
+          return idx >= 0 ? idx : 0;
+        }
+
+        function now() {
+          return new Date().toLocaleString();
+        }
+
+        function buildExtraFields() {
+          var wrapper = document.getElementById('extraFields');
+          wrapper.innerHTML = '';
+          config.extraFields.forEach(function (field) {
+            var label = document.createElement('label');
+            var span = document.createElement('span');
+            span.textContent = field.label;
+            var input = document.createElement('input');
+            input.type = field.type || 'text';
+            input.name = field.name;
+            input.placeholder = field.placeholder || '';
+            if (field.required) input.required = true;
+            label.appendChild(span);
+            label.appendChild(input);
+            wrapper.appendChild(label);
+          });
+        }
+
+        function gatherExtras(data) {
+          var extras = {};
+          config.extraFields.forEach(function (field) {
+            extras[field.name] = data.get(field.name) || '';
+          });
+          return extras;
+        }
+
+        function resolveRefField() {
+          if (!config.extraFields || !config.extraFields.length) return null;
+          var found = null;
+          config.extraFields.some(function (field) {
+            var name = (field.name || '').toLowerCase();
+            var label = (field.label || '').toLowerCase();
+            var looksLikeNumber = name.indexOf('number') >= 0 || label.indexOf('number') >= 0;
+            if (looksLikeNumber) {
+              found = field;
+              return true;
+            }
+            return false;
+          });
+          return found;
+        }
+
+        function getRefValue(item, refField) {
+          if (!refField) return '';
+          if (item.extras && item.extras[refField.name]) {
+            return item.extras[refField.name];
+          }
+          return '-';
+        }
+
+        function getStatusText(item) {
+          var lastIndex = stages.length - 1;
+          var idx = stageToIndex(item.stage);
+          return idx === lastIndex ? 'Workflow Completed' : 'In Progress';
+        }
+
+        function matchesFilter(item, query) {
+          if (!query) return true;
+          var hay = [
+            getRefValue(item, refField),
+            item.title,
+            item.owner,
+            item.stage,
+            getStatusText(item)
+          ].join(' ').toLowerCase();
+          return hay.indexOf(query.toLowerCase()) !== -1;
+        }
+
+        function renderTable() {
+          if (!refField) {
+            refField = resolveRefField();
+          }
+          var refHeader = document.getElementById('refHeader');
+          if (refHeader) {
+            if (refField) {
+              refHeader.textContent = refField.label || 'Reference';
+              refHeader.style.display = '';
+            } else {
+              refHeader.style.display = 'none';
+            }
+          }
+          var columnCount = refField ? 6 : 5;
+          var list = loadRequests();
+          var tbody = document.getElementById('requestTable');
+          tbody.innerHTML = '';
+          if (list.length === 0) {
+            var row = document.createElement('tr');
+            var cell = document.createElement('td');
+            cell.colSpan = columnCount;
+            cell.className = 'muted';
+            cell.textContent = 'No requests yet. Create one above.';
+            row.appendChild(cell);
+            tbody.appendChild(row);
+            return;
+          }
+          var query = (document.getElementById('requestFilter') || {}).value || '';
+          var filtered = list.filter(function (item) { return matchesFilter(item, query); });
+          if (filtered.length === 0) {
+            var emptyRow = document.createElement('tr');
+            var emptyCell = document.createElement('td');
+            emptyCell.colSpan = columnCount;
+            emptyCell.className = 'muted';
+            emptyCell.textContent = 'No matching requests.';
+            emptyRow.appendChild(emptyCell);
+            tbody.appendChild(emptyRow);
+            return;
+          }
+          filtered.forEach(function (item) {
+            var row = document.createElement('tr');
+            var statusText = getStatusText(item);
+            var statusClass = statusText === 'Workflow Completed' ? 'detail-stage status-complete' : 'detail-stage';
+            var refCell = refField ? ('<td class="ref-col">' + getRefValue(item, refField) + '</td>') : '';
+            row.innerHTML =
+              refCell +
+              '<td>' + item.title + '</td>' +
+              '<td>' + item.owner + '</td>' +
+              '<td><span class="detail-stage">' + item.stage + '</span></td>' +
+              '<td><span class="' + statusClass + '">' + statusText + '</span></td>' +
+              '<td>' +
+                '<button class="btn secondary" data-action="view" data-id="' + item.id + '">View</button>' +
+                '<button class="btn secondary danger" data-action="delete" data-id="' + item.id + '">Delete</button>' +
+              '</td>';
+            tbody.appendChild(row);
+          });
+
+          if (!selectedId) {
+            document.getElementById('detailActions').hidden = true;
+            document.getElementById('detailActions').style.display = 'none';
+            document.getElementById('detailFooter').hidden = true;
+            document.getElementById('detailAuditBlock').hidden = true;
+          }
+        }
+
+        function seedSamples() {
+          var samples = config.seedSamples.length ? config.seedSamples : [
+            { title: 'Urgent Request', owner: 'Finance Ops', amount: 820000, notes: 'Month-end processing' },
+            { title: 'Standard Request', owner: 'Operations', amount: 3200000, notes: 'Quarterly cycle' }
+          ];
+          var list = loadRequests();
+          samples.forEach(function (sample, idx) {
+            list.push({
+              id: Date.now().toString() + '-' + idx,
+              title: sample.title,
+              owner: sample.owner,
+              amount: sample.amount,
+              notes: sample.notes,
+              extras: Object.keys(sample).reduce(function (acc, key) {
+                if (['title', 'owner', 'amount', 'notes'].indexOf(key) === -1) {
+                  acc[key] = sample[key];
+                }
+                return acc;
+              }, {}),
+              stage: stages[0],
+              audit: [now() + ' - Request created']
+            });
+          });
+          saveRequests(list);
+          renderTable();
+          showToast('Sample requests loaded.');
+        }
+
+        document.getElementById('requestForm').addEventListener('submit', function (e) {
+          e.preventDefault();
+          var data = new FormData(e.target);
+          var list = loadRequests();
+          var newItem = {
+            id: Date.now().toString(),
+            title: data.get('title'),
+            owner: data.get('owner'),
+            amount: data.get('amount'),
+            notes: data.get('notes'),
+            extras: gatherExtras(data),
+            stage: stages[0],
+            audit: [now() + ' - Request created']
+          };
+          list.push(newItem);
+          saveRequests(list);
+          e.target.reset();
+          renderTable();
+          showToast('Request created.');
+        });
+
+        document.getElementById('seedBtn').addEventListener('click', seedSamples);
+
+        document.getElementById('clearBtn').addEventListener('click', function () {
+          saveRequests([]);
+          renderTable();
+          document.getElementById('detailCard').hidden = true;
+          document.getElementById('detailFooter').hidden = true;
+          document.getElementById('detailAuditBlock').hidden = true;
+          document.getElementById('detailActions').hidden = true;
+          selectedId = null;
+          renderStagePreview();
+          showToast('All requests cleared.');
+        });
+
+        document.getElementById('requestFilter').addEventListener('input', function () {
+          renderTable();
+        });
+
+        document.getElementById('requestTable').addEventListener('click', function (e) {
+          var btn = e.target.closest('button[data-id]');
+          if (!btn) return;
+          var id = btn.getAttribute('data-id');
+          var action = btn.getAttribute('data-action') || 'view';
+          var list = loadRequests();
+          if (action === 'delete') {
+            var next = list.filter(function (entry) { return entry.id !== id; });
+            saveRequests(next);
+            renderTable();
+            if (selectedId === id) {
+              document.getElementById('detailCard').hidden = true;
+              selectedId = null;
+              renderStagePreview();
+              document.getElementById('detailTitle').textContent = '-';
+              document.getElementById('detailOwner').textContent = '-';
+              document.getElementById('detailAmount').textContent = 'Rp 0';
+              document.getElementById('detailStage').textContent = '-';
+              document.getElementById('detailExtras').innerHTML = '';
+              document.getElementById('detailAudit').innerHTML = '';
+            }
+            showToast('Request deleted.');
+            return;
+          }
+          var item = list.find(function (entry) { return entry.id === id; });
+          if (!item) return;
+          showDetail(item);
+        });
+
+        function showDetail(item) {
+          selectedId = item.id;
+          document.getElementById('detailCard').hidden = false;
+          document.getElementById('detailFooter').hidden = false;
+          document.getElementById('detailAuditBlock').hidden = false;
+          document.getElementById('detailActions').hidden = false;
+          document.getElementById('detailActions').style.display = 'flex';
+          document.getElementById('detailTitle').textContent = item.title;
+          document.getElementById('detailOwner').textContent = item.owner;
+          document.getElementById('detailAmount').textContent = formatAmount(item.amount);
+          document.getElementById('detailNotes').textContent = item.notes ? item.notes : '-';
+          document.getElementById('detailStage').textContent = item.stage;
+          var doneIndex = stages.length - 1;
+          var stageIndex = stageToIndex(item.stage);
+          document.getElementById('detailStatus').textContent = stageIndex === doneIndex ? 'Workflow Completed' : 'In Progress';
+          document.getElementById('detailStatus').classList.toggle('status-complete', stageIndex === doneIndex);
+          document.getElementById('detailStage').classList.toggle('status-complete', stageIndex === doneIndex);
+          renderStagePreview(item.stage);
+          var extras = document.getElementById('detailExtras');
+          extras.innerHTML = '';
+          var priority = ['prNumber', 'supplier', 'department'];
+          var ordered = [];
+          config.extraFields.forEach(function (field) {
+            var value = item.extras ? item.extras[field.name] : '';
+            ordered.push({ field: field, value: value });
+          });
+          ordered.sort(function (a, b) {
+            var ai = priority.indexOf(a.field.name);
+            var bi = priority.indexOf(b.field.name);
+            if (ai === -1 && bi === -1) return 0;
+            if (ai === -1) return 1;
+            if (bi === -1) return -1;
+            return ai - bi;
+          });
+          ordered.forEach(function (entry) {
+            var row = document.createElement('tr');
+            row.innerHTML = '<th>' + entry.field.label + '</th><td>' + (entry.value || '-') + '</td>';
+            extras.appendChild(row);
+          });
+          var auditList = document.getElementById('detailAudit');
+          auditList.innerHTML = '';
+          (item.audit || []).forEach(function (entry) {
+            var li = document.createElement('li');
+            li.textContent = entry;
+            auditList.appendChild(li);
+          });
+          document.getElementById('detailCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function updateStage(id, nextStage) {
+          var list = loadRequests();
+          var item = list.find(function (entry) { return entry.id === id; });
+          if (!item) return;
+          item.stage = nextStage;
+          item.audit = item.audit || [];
+          item.audit.push(now() + ' - Stage updated to ' + nextStage);
+          saveRequests(list);
+          renderTable();
+          showDetail(item);
+          showToast('Workflow advanced to ' + nextStage + '.');
+        }
+
+        function handleApprove(id) {
+          var list = loadRequests();
+          var item = list.find(function (entry) { return entry.id === id; });
+          if (!item) return;
+          var idx = stageToIndex(item.stage);
+          var lastIndex = stages.length - 1;
+          if (idx >= lastIndex) {
+            showToast('Workflow already completed.');
+            return;
+          }
+          updateStage(id, stages[idx + 1]);
+        }
+
+        function handleReset(id) {
+          var list = loadRequests();
+          var item = list.find(function (entry) { return entry.id === id; });
+          if (!item) return;
+          item.stage = stages[0];
+          item.audit = item.audit || [];
+          item.audit.push(now() + ' - Reset to ' + stages[0]);
+          saveRequests(list);
+          renderTable();
+          showDetail(item);
+          showToast('Workflow reset to ' + stages[0] + '.');
+        }
+
+        document.getElementById('closeDetail').addEventListener('click', function () {
+          document.getElementById('detailCard').hidden = true;
+          document.getElementById('detailFooter').hidden = true;
+          document.getElementById('detailAuditBlock').hidden = true;
+          document.getElementById('detailActions').hidden = true;
+          document.getElementById('detailActions').style.display = 'none';
+          selectedId = null;
+          renderStagePreview();
+          document.getElementById('detailTitle').textContent = '-';
+          document.getElementById('detailOwner').textContent = '-';
+          document.getElementById('detailAmount').textContent = 'Rp 0';
+          document.getElementById('detailNotes').textContent = '-';
+          document.getElementById('detailStage').textContent = '-';
+          document.getElementById('detailStatus').textContent = 'In Progress';
+          document.getElementById('detailStatus').classList.remove('status-complete');
+          document.getElementById('detailStage').classList.remove('status-complete');
+          document.getElementById('detailExtras').innerHTML = '';
+          document.getElementById('detailAudit').innerHTML = '';
+        });
+
+        document.getElementById('detailApprove').addEventListener('click', function () {
+          if (!selectedId) {
+            showToast('Select a request from the list first.');
+            return;
+          }
+          handleApprove(selectedId);
+        });
+
+        document.getElementById('detailReset').addEventListener('click', function () {
+          if (!selectedId) {
+            showToast('Select a request from the list first.');
+            return;
+          }
+          handleReset(selectedId);
+        });
+
+        function showToast(message) {
+          var toast = document.getElementById('toast');
+          if (!toast) return;
+          toast.textContent = message;
+          toast.classList.add('show');
+          clearTimeout(toast._timer);
+          toast._timer = setTimeout(function () {
+            toast.classList.remove('show');
+          }, 2200);
+        }
+
+        document.getElementById('labelTitle').textContent = config.titleLabel;
+        document.getElementById('labelOwner').textContent = config.ownerLabel;
+        document.getElementById('labelAmount').textContent = config.amountLabel;
+        document.getElementById('detailLabelTitle').textContent = config.titleLabel;
+        document.getElementById('detailLabelOwner').textContent = config.ownerLabel;
+        document.getElementById('detailLabelAmount').textContent = config.amountLabel;
+        buildExtraFields();
+        renderGuidance();
+        document.getElementById('detailActions').hidden = true;
+        document.getElementById('detailActions').style.display = 'none';
+        renderStagePreview();
+        renderTable();
+      })();
+    </script>
+  </body>
+</html>
+
