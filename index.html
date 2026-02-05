@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -22,7 +22,7 @@
       <nav class="site-nav">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
-        <a href="http://localhost:8085/demo">Try Demo</a>
+        <a href="demo/index.html">Try Demo</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -36,35 +36,65 @@
             mindset.
           </h1>
           <p class="lead">
-            I'm a software engineer from Indonesia. I design and
-            ship enterprise workflows, billing, and approval systems built on
-            Intramart and surrounding services.
+            Software Developer specializing in Java and Spring with full-stack experience building web and internal applications, including workflow-driven systems on enterprise platforms.
           </p>
           <div class="hero-actions">
             <a class="btn primary" href="#projects">View Projects</a>
             <a class="btn ghost" href="#contact">Get in Touch</a>
+            <a class="btn ghost" href="resume/Riani%20Dewi%20-%20Resume%20EN%20(2026).pdf">Download Resume</a>
           </div>
           <div class="hero-meta">
-            <div>
+            <div class="meta-card">
               <p class="meta-label">Focus</p>
-              <p>Workflow automation, enterprise web applications, system integration</p>
+              <div class="meta-chips">
+                <span>Web applications</span>
+                <span>Internal systems</span>
+                <span>Workflow-driven processes</span>
+                <span>System integration</span>
+              </div>
             </div>
-            <div>
+            <div class="meta-card">
               <p class="meta-label">Stack</p>
-              <p>Java, Spring MVC, SQL (PostgreSQL, SQL Server), REST APIs</p>
+              <div class="meta-chips">
+                <span>Java</span>
+                <span>Spring MVC</span>
+                <span>PostgreSQL</span>
+                <span>SQL Server</span>
+                <span>REST APIs</span>
+                <span>JSP</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Intramart</span>
+              </div>
             </div>
           </div>
         </div>
         <div class="hero-card">
-          <p class="card-title">Highlighted Systems</p>
-          <ul class="">
-            <li>Service Invoice workflow with approval routing</li>
-            <li>Portal invoicing for GR-based billing</li>
-            <li>Paperless payment flow with audit trace</li>
+          <div class="hero-photo">
+            <img src="images/riani3.jpg" alt="Riani Dewi portrait" />
+          </div>
+          <p class="card-title">Why Hire Me</p>
+          <ul class="card-list">
+            <li>
+                <strong>Reliable & Disciplined</strong><br />
+                Consistent, detail-oriented, and accountable in delivering production-ready work.
+            </li>
+            <li>
+                <strong>Clean & Maintainable Code</strong><br />
+                I write structured, readable code that supports long-term maintenance and team collaboration.
+            </li>
+            <li>
+                <strong>Fast Learner</strong><br />
+                I adapt quickly to new systems, tools, and business requirements.
+            </li>
+            <li>
+                <strong>Collaborative</strong><br />
+                I collaborate well with cross-functional teams, with a strong focus on clear communication and feedback.
+            </li>
           </ul>
           <p class="card-footnote">
-            Each project listed below is an Intramart app. Source is available
-            in this repository.
+            
           </p>
         </div>
       </section>
@@ -72,112 +102,401 @@
       <section class="projects" id="projects">
         <div class="section-head">
           <h2>Projects</h2>
+          <p></p>
+        </div>
+
+        <div class="section-head section-head-tight">
+          <h3>Personal Projects</h3>
           <p>
-            Centralized view of Intramart workflows. Each card links to the
-            project folder in this repo.
+            Side projects and experiments I build outside of client work.
           </p>
         </div>
 
-        <div class="project-grid">
+        <div class="filter-row" id="personalFilters">
+          <button class="filter-btn is-active" data-filter="all" type="button">All</button>
+          <button class="filter-btn" data-filter="template" type="button">Templates</button>
+          <button class="filter-btn" data-filter="landing page" type="button">Landing Pages</button>
+          <button class="filter-btn" data-filter="services" type="button">Services</button>
+          <button class="filter-btn" data-filter="event" type="button">Event</button>
+          <button class="filter-btn" data-filter="app" type="button">App</button>
+          <button class="filter-btn" data-filter="product" type="button">Product</button>
+          <button class="filter-btn" data-filter="company" type="button">Company</button>
+        </div>
+
+        <div class="project-grid personal-grid">
+          <article class="project-card has-preview" data-tags="template,landing page,services">
+            <div class="project-preview">
+              <img src="images/previews/local-service.jpg" alt="Local Service Landing Page preview" referrerpolicy="no-referrer" loading="lazy" />
+            </div>
+            <h3>Local Service Landing Page</h3>
+            <p>Service business template with trust badges, services, and CTA flow.</p>
+            <div class="chip-row">
+              <span>Template</span>
+              <span>Landing Page</span>
+              <span>Services</span>
+            </div>
+            <div class="card-actions">
+              <a class="icon-btn code" href="preview/local-service.html" title="Preview" aria-label="Preview">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+              <a class="icon-btn github" href="https://github.com/rianidewi/portfolio-projects/tree/main/landing-pages/local-service.html" target="_blank" rel="noopener" title="GitHub Repo" aria-label="GitHub Repo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 .6a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.4 2 1.4 1.2 2 3.1 1.4 3.9 1.1.1-.9.5-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6.1 0-1.4.5-2.6 1.3-3.5-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.6 1.3a12.5 12.5 0 0 1 6.6 0c2.5-1.6 3.6-1.3 3.6-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.5 0 4.8-2.8 5.8-5.5 6.1.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .6z"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="project-card has-preview" data-tags="template,landing page,event">
+            <div class="project-preview">
+              <img src="images/previews/event.jpg" alt="Event Landing Page preview" referrerpolicy="no-referrer" loading="lazy" />
+            </div>
+            <h3>Event Landing Page</h3>
+            <p>Conference/event template with schedule, speakers, and ticket CTA.</p>
+            <div class="chip-row">
+              <span>Template</span>
+              <span>Landing Page</span>
+              <span>Event</span>
+            </div>
+            <div class="card-actions">
+              <a class="icon-btn code" href="preview/event.html" title="Preview" aria-label="Preview">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+              <a class="icon-btn github" href="https://github.com/rianidewi/portfolio-projects/tree/main/landing-pages/event.html" target="_blank" rel="noopener" title="GitHub Repo" aria-label="GitHub Repo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 .6a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.4 2 1.4 1.2 2 3.1 1.4 3.9 1.1.1-.9.5-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6.1 0-1.4.5-2.6 1.3-3.5-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.6 1.3a12.5 12.5 0 0 1 6.6 0c2.5-1.6 3.6-1.3 3.6-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.5 0 4.8-2.8 5.8-5.5 6.1.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .6z"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="project-card has-preview" data-tags="template,landing page,app">
+            <div class="project-preview">
+              <img src="images/previews/app-launch.jpg" alt="App Launch Landing Page preview" referrerpolicy="no-referrer" loading="lazy" />
+            </div>
+            <h3>App Launch Landing Page</h3>
+            <p>App launch template with highlights, ratings, and store CTAs.</p>
+            <div class="chip-row">
+              <span>Template</span>
+              <span>Landing Page</span>
+              <span>App</span>
+            </div>
+            <div class="card-actions">
+              <a class="icon-btn code" href="preview/app-launch.html" title="Preview" aria-label="Preview">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+              <a class="icon-btn github" href="https://github.com/rianidewi/portfolio-projects/tree/main/landing-pages/app-launch.html" target="_blank" rel="noopener" title="GitHub Repo" aria-label="GitHub Repo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 .6a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.4 2 1.4 1.2 2 3.1 1.4 3.9 1.1.1-.9.5-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6.1 0-1.4.5-2.6 1.3-3.5-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.6 1.3a12.5 12.5 0 0 1 6.6 0c2.5-1.6 3.6-1.3 3.6-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.5 0 4.8-2.8 5.8-5.5 6.1.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .6z"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="project-card has-preview" data-tags="template,landing page,product">
+            <div class="project-preview">
+              <img src="images/previews/product.jpg" alt="Product Landing Page preview" referrerpolicy="no-referrer" loading="lazy" />
+            </div>
+            <h3>Product Landing Page</h3>
+            <p>Single-product template with benefits, pricing, and purchase CTA.</p>
+            <div class="chip-row">
+              <span>Template</span>
+              <span>Landing Page</span>
+              <span>Product</span>
+            </div>
+            <div class="card-actions">
+              <a class="icon-btn code" href="preview/product.html" title="Preview" aria-label="Preview">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+              <a class="icon-btn github" href="https://github.com/rianidewi/portfolio-projects/tree/main/landing-pages/product.html" target="_blank" rel="noopener" title="GitHub Repo" aria-label="GitHub Repo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 .6a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.4 2 1.4 1.2 2 3.1 1.4 3.9 1.1.1-.9.5-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6.1 0-1.4.5-2.6 1.3-3.5-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.6 1.3a12.5 12.5 0 0 1 6.6 0c2.5-1.6 3.6-1.3 3.6-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.5 0 4.8-2.8 5.8-5.5 6.1.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .6z"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="project-card has-preview" data-tags="template,landing page,company">
+            <div class="project-preview">
+              <img src="images/previews/company.jpg" alt="Company Landing Page preview" referrerpolicy="no-referrer" loading="lazy" />
+            </div>
+            <h3>Company Landing Page</h3>
+            <p>B2B company template with solutions, stats, and contact CTA.</p>
+            <div class="chip-row">
+              <span>Template</span>
+              <span>Landing Page</span>
+              <span>Company</span>
+            </div>
+            <div class="card-actions">
+              <a class="icon-btn code" href="preview/company.html" title="Preview" aria-label="Preview">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+              <a class="icon-btn github" href="https://github.com/rianidewi/portfolio-projects/tree/main/landing-pages/company.html" target="_blank" rel="noopener" title="GitHub Repo" aria-label="GitHub Repo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 .6a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.4 2 1.4 1.2 2 3.1 1.4 3.9 1.1.1-.9.5-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6.1 0-1.4.5-2.6 1.3-3.5-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.6 1.3a12.5 12.5 0 0 1 6.6 0c2.5-1.6 3.6-1.3 3.6-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.5 0 4.8-2.8 5.8-5.5 6.1.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .6z"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="section-head section-head-tight">
+          <h3>Experience Projects</h3>
+          <p>
+            Projects built from professional experience in workflow-driven
+            environments.
+          </p>
+        </div>
+
+        <div class="project-grid experience-grid">
           <article class="project-card">
             <h3>Service Invoice</h3>
-            <p>
-              Workflow for service billing, approval, and invoice lifecycle
-              tracking.
-            </p>
+            <p>Workflow for service billing, approval, and invoice lifecycle tracking.</p>
             <div class="chip-row">
               <span>Intramart</span>
               <span>Workflow</span>
             </div>
-            <a class="card-link" href="MMKI_Service_Invoice/src">Open Source</a>
+            <div class="card-actions">
+              <a class="icon-btn code" href="https://github.com/rianidewi/portfolio-projects" target="_blank" rel="noopener" title="Open Source Code" aria-label="Open Source Code">
+                <span>&lt;/&gt;</span>
+              </a>
+              <a class="icon-btn demo" href="demo/index.html" title="Try Demo" aria-label="Try Demo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+            </div>
           </article>
-
           <article class="project-card">
             <h3>Portal (GR) Invoicing</h3>
-            <p>
-              GR-based invoicing portal with data intake, validation, and
-              settlement steps.
-            </p>
+            <p>GR-based invoicing portal with data intake, validation, and settlement steps.</p>
             <div class="chip-row">
               <span>Intramart</span>
               <span>Invoicing</span>
             </div>
-            <a class="card-link" href="MMKI_Portal_Invoicing/src">Open Source</a>
+            <div class="card-actions">
+              <a class="icon-btn code" href="https://github.com/rianidewi/portfolio-projects" target="_blank" rel="noopener" title="Open Source Code" aria-label="Open Source Code">
+                <span>&lt;/&gt;</span>
+              </a>
+              <a class="icon-btn demo" href="demo/index.html" title="Try Demo" aria-label="Try Demo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+            </div>
           </article>
-
           <article class="project-card">
             <h3>Paperless Payment</h3>
-            <p>
-              Digital payment workflow with approvals, status tracking, and
-              audit trail.
-            </p>
+            <p>Digital payment workflow with approvals, status tracking, and audit trail.</p>
             <div class="chip-row">
               <span>Intramart</span>
               <span>Finance</span>
             </div>
-            <a class="card-link" href="MMKI_Paperless_Payment/src">Open Source</a>
+            <div class="card-actions">
+              <a class="icon-btn code" href="https://github.com/rianidewi/portfolio-projects" target="_blank" rel="noopener" title="Open Source Code" aria-label="Open Source Code">
+                <span>&lt;/&gt;</span>
+              </a>
+              <a class="icon-btn demo" href="demo/index.html" title="Try Demo" aria-label="Try Demo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+            </div>
           </article>
-
           <article class="project-card">
             <h3>Budget Input</h3>
-            <p>
-              Budget capture workflow supporting validation, versioning, and
-              review.
-            </p>
+            <p>Budget capture workflow supporting validation, versioning, and review.</p>
             <div class="chip-row">
               <span>Intramart</span>
               <span>Planning</span>
             </div>
-            <a class="card-link" href="MMKI_Budget_Input/src">Open Source</a>
+            <div class="card-actions">
+              <a class="icon-btn code" href="https://github.com/rianidewi/portfolio-projects" target="_blank" rel="noopener" title="Open Source Code" aria-label="Open Source Code">
+                <span>&lt;/&gt;</span>
+              </a>
+              <a class="icon-btn demo" href="demo/index.html" title="Try Demo" aria-label="Try Demo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+            </div>
           </article>
-
           <article class="project-card">
             <h3>Purchase Request</h3>
-            <p>
-              Purchase request lifecycle with approvals, costing, and status
-              updates.
-            </p>
+            <p>Purchase request lifecycle with approvals, costing, and status updates.</p>
             <div class="chip-row">
               <span>Intramart</span>
               <span>Procurement</span>
             </div>
-            <a class="card-link" href="AFI_Purchase_Request/src">Open Source</a>
+            <div class="card-actions">
+              <a class="icon-btn code" href="https://github.com/rianidewi/portfolio-projects" target="_blank" rel="noopener" title="Open Source Code" aria-label="Open Source Code">
+                <span>&lt;/&gt;</span>
+              </a>
+              <a class="icon-btn demo" href="demo/index.html" title="Try Demo" aria-label="Try Demo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Procure-to-Pay Workflow</h3>
+            <p>End-to-end P2P flow covering requisition, PO, GR, invoice, and payment.</p>
+            <div class="chip-row">
+              <span>Workflow</span>
+              <span>ERP</span>
+              <span>Finance</span>
+            </div>
+            <div class="card-actions">
+              <a class="icon-btn code" href="https://github.com/rianidewi/portfolio-projects/tree/main/Procure_To_Pay_Workflow" target="_blank" rel="noopener" title="Open Source Code" aria-label="Open Source Code">
+                <span>&lt;/&gt;</span>
+              </a>
+              <a class="icon-btn demo" href="demo/index.html" title="Try Demo" aria-label="Try Demo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+              <a class="icon-btn github" href="https://github.com/rianidewi/portfolio-projects/tree/main/Procure_To_Pay_Workflow" target="_blank" rel="noopener" title="GitHub Repo" aria-label="GitHub Repo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 .6a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.4 2 1.4 1.2 2 3.1 1.4 3.9 1.1.1-.9.5-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6.1 0-1.4.5-2.6 1.3-3.5-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.6 1.3a12.5 12.5 0 0 1 6.6 0c2.5-1.6 3.6-1.3 3.6-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.5 0 4.8-2.8 5.8-5.5 6.1.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .6z"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Order-to-Cash Workflow</h3>
+            <p>Sales order execution with delivery, invoicing, and collections lifecycle.</p>
+            <div class="chip-row">
+              <span>Workflow</span>
+              <span>ERP</span>
+              <span>Sales</span>
+            </div>
+            <div class="card-actions">
+              <a class="icon-btn code" href="https://github.com/rianidewi/portfolio-projects/tree/main/Order_To_Cash_Workflow" target="_blank" rel="noopener" title="Open Source Code" aria-label="Open Source Code">
+                <span>&lt;/&gt;</span>
+              </a>
+              <a class="icon-btn demo" href="demo/index.html" title="Try Demo" aria-label="Try Demo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+              <a class="icon-btn github" href="https://github.com/rianidewi/portfolio-projects/tree/main/Order_To_Cash_Workflow" target="_blank" rel="noopener" title="GitHub Repo" aria-label="GitHub Repo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 .6a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.4 2 1.4 1.2 2 3.1 1.4 3.9 1.1.1-.9.5-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6.1 0-1.4.5-2.6 1.3-3.5-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.6 1.3a12.5 12.5 0 0 1 6.6 0c2.5-1.6 3.6-1.3 3.6-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.5 0 4.8-2.8 5.8-5.5 6.1.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .6z"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Record-to-Report Workflow</h3>
+            <p>Close and reporting workflow from journals to period close and reporting.</p>
+            <div class="chip-row">
+              <span>Workflow</span>
+              <span>ERP</span>
+              <span>Accounting</span>
+            </div>
+            <div class="card-actions">
+              <a class="icon-btn code" href="https://github.com/rianidewi/portfolio-projects/tree/main/Record_To_Report_Workflow" target="_blank" rel="noopener" title="Open Source Code" aria-label="Open Source Code">
+                <span>&lt;/&gt;</span>
+              </a>
+              <a class="icon-btn demo" href="demo/index.html" title="Try Demo" aria-label="Try Demo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+              <a class="icon-btn github" href="https://github.com/rianidewi/portfolio-projects/tree/main/Record_To_Report_Workflow" target="_blank" rel="noopener" title="GitHub Repo" aria-label="GitHub Repo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 .6a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.4 2 1.4 1.2 2 3.1 1.4 3.9 1.1.1-.9.5-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6.1 0-1.4.5-2.6 1.3-3.5-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.6 1.3a12.5 12.5 0 0 1 6.6 0c2.5-1.6 3.6-1.3 3.6-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.5 0 4.8-2.8 5.8-5.5 6.1.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .6z"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Hire-to-Retire Workflow</h3>
+            <p>HR lifecycle flow from hiring to onboarding, payroll, and offboarding.</p>
+            <div class="chip-row">
+              <span>Workflow</span>
+              <span>ERP</span>
+              <span>HR</span>
+            </div>
+            <div class="card-actions">
+              <a class="icon-btn code" href="https://github.com/rianidewi/portfolio-projects/tree/main/Hire_To_Retire_Workflow" target="_blank" rel="noopener" title="Open Source Code" aria-label="Open Source Code">
+                <span>&lt;/&gt;</span>
+              </a>
+              <a class="icon-btn demo" href="demo/index.html" title="Try Demo" aria-label="Try Demo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+              <a class="icon-btn github" href="https://github.com/rianidewi/portfolio-projects/tree/main/Hire_To_Retire_Workflow" target="_blank" rel="noopener" title="GitHub Repo" aria-label="GitHub Repo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 .6a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.4 2 1.4 1.2 2 3.1 1.4 3.9 1.1.1-.9.5-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6.1 0-1.4.5-2.6 1.3-3.5-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.6 1.3a12.5 12.5 0 0 1 6.6 0c2.5-1.6 3.6-1.3 3.6-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.5 0 4.8-2.8 5.8-5.5 6.1.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .6z"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Inventory Replenishment Workflow</h3>
+            <p>Demand-driven replenishment with reorder, GR, and stock updates.</p>
+            <div class="chip-row">
+              <span>Workflow</span>
+              <span>ERP</span>
+              <span>Inventory</span>
+            </div>
+            <div class="card-actions">
+              <a class="icon-btn code" href="https://github.com/rianidewi/portfolio-projects/tree/main/Inventory_Replenishment_Workflow" target="_blank" rel="noopener" title="Open Source Code" aria-label="Open Source Code">
+                <span>&lt;/&gt;</span>
+              </a>
+              <a class="icon-btn demo" href="demo/index.html" title="Try Demo" aria-label="Try Demo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+              <a class="icon-btn github" href="https://github.com/rianidewi/portfolio-projects/tree/main/Inventory_Replenishment_Workflow" target="_blank" rel="noopener" title="GitHub Repo" aria-label="GitHub Repo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 .6a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.4 2 1.4 1.2 2 3.1 1.4 3.9 1.1.1-.9.5-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6.1 0-1.4.5-2.6 1.3-3.5-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.6 1.3a12.5 12.5 0 0 1 6.6 0c2.5-1.6 3.6-1.3 3.6-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.5 0 4.8-2.8 5.8-5.5 6.1.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .6z"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Returns / RMA Workflow</h3>
+            <p>Return approvals with GR return, inspection, and credit note handling.</p>
+            <div class="chip-row">
+              <span>Workflow</span>
+              <span>ERP</span>
+              <span>Operations</span>
+            </div>
+            <div class="card-actions">
+              <a class="icon-btn code" href="https://github.com/rianidewi/portfolio-projects/tree/main/Returns_Rma_Workflow" target="_blank" rel="noopener" title="Open Source Code" aria-label="Open Source Code">
+                <span>&lt;/&gt;</span>
+              </a>
+              <a class="icon-btn demo" href="demo/index.html" title="Try Demo" aria-label="Try Demo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7-11-7z"/>
+                </svg>
+              </a>
+              <a class="icon-btn github" href="https://github.com/rianidewi/portfolio-projects/tree/main/Returns_Rma_Workflow" target="_blank" rel="noopener" title="GitHub Repo" aria-label="GitHub Repo">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 .6a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.4 2 1.4 1.2 2 3.1 1.4 3.9 1.1.1-.9.5-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6.1 0-1.4.5-2.6 1.3-3.5-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.6 1.3a12.5 12.5 0 0 1 6.6 0c2.5-1.6 3.6-1.3 3.6-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.5 0 4.8-2.8 5.8-5.5 6.1.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .6z"/>
+                </svg>
+              </a>
+            </div>
           </article>
         </div>
+        <div class="load-more">
+          <button class="btn ghost" id="experienceLoadMore" type="button">Load More</button>
+          <button class="btn ghost" id="experienceLoadLess" type="button">Load Less</button>
+        </div>
       </section>
-
-      <!-- <section class="setup" id="setup">
-        <div class="section-head">
-          <h2>Local Database Notes</h2>
-          <p>
-            If you want to run these apps, you will need a local Postgres
-            database and the Intramart runtime. This site itself is static and
-            does not require a database.
-          </p>
-        </div>
-
-        <div class="setup-card">
-          <p class="setup-title">Suggested local database</p>
-          <pre><code>-- Database: local
-
--- DROP DATABASE IF EXISTS local;
-
-CREATE DATABASE local
-    WITH
-    OWNER = imart
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'English_Indonesia.1252'
-    LC_CTYPE = 'English_Indonesia.1252'
-    LOCALE_PROVIDER = 'libc'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1
-    IS_TEMPLATE = False;
-</code></pre>
-          <p class="setup-footnote">
-            Credentials: user `imart`, password `imart`.
-          </p>
-        </div>
-      </section> -->
 
       <section class="contact" id="contact">
         <div class="section-head">
@@ -186,25 +505,133 @@ CREATE DATABASE local
             Want to collaborate or review the projects? Let's connect.
           </p>
         </div>
-        <div class="contact-grid">
-          <div>
-            <p class="contact-label">Email</p>
-            <p class="contact-value">sitinurfitrianidewi@gmail.com</p>
+        <div class="contact-grid contact-cards">
+          <div class="contact-card">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.2l8 5 8-5V7H4zm16 10V9.4l-8 5-8-5V17h16z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-label">Email</p>
+              <p class="contact-value">
+                <a href="mailto:sitinurfitrianidewi@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Riani%2C%0A%0A" class="contact-link">Send Email</a>
+              </p>
+            </div>
           </div>
-          <div>
-            <p class="contact-label">LinkedIn</p>
-            <p class="contact-value">https://www.linkedin.com/in/rianidewi</p>
+          <div class="contact-card">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H4zm4.4 7.1H11v8H8.4v-8zM9.7 6.8a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM12.7 10.1h2.4v1.1h.1c.3-.6 1.1-1.2 2.3-1.2 2.4 0 2.8 1.6 2.8 3.6v4.5h-2.5v-4c0-1-.1-2.2-1.4-2.2s-1.6 1.1-1.6 2.1v4.1h-2.5v-8z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-label">LinkedIn</p>
+              <p class="contact-value">
+                <a href="https://www.linkedin.com/in/rianidewi" target="_blank" rel="noopener" class="contact-link">View Profile</a>
+              </p>
+            </div>
           </div>
-          <div>
-            <p class="contact-label">Location</p>
-            <p class="contact-value">Indonesia</p>
+          <div class="contact-card">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 .6a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.4 2 1.4 1.2 2 3.1 1.4 3.9 1.1.1-.9.5-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6.1 0-1.4.5-2.6 1.3-3.5-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.6 1.3a12.5 12.5 0 0 1 6.6 0c2.5-1.6 3.6-1.3 3.6-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.5 0 4.8-2.8 5.8-5.5 6.1.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .6z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-label">GitHub</p>
+              <p class="contact-value">
+                <a href="https://github.com/rianidewi/" target="_blank" rel="noopener" class="contact-link">View Repos</a>
+              </p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7zm5 2.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-label">Instagram</p>
+              <p class="contact-value">
+                <a href="https://www.instagram.com/iamrianii" target="_blank" rel="noopener" class="contact-link">View Profile</a>
+              </p>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>© 2026 Riani Dewi. Built with care and clarity.</p>
+      <p>&copy; 2026 Riani Dewi. Built with care and clarity.</p>
     </footer>
+    <script>
+      (function () {
+        var filterRow = document.getElementById('personalFilters');
+        if (!filterRow) return;
+        var cards = Array.prototype.slice.call(document.querySelectorAll('.personal-grid .project-card[data-tags]'));
+        function setActive(target) {
+          Array.prototype.slice.call(filterRow.querySelectorAll('.filter-btn')).forEach(function (btn) {
+            btn.classList.toggle('is-active', btn === target);
+          });
+        }
+        function applyFilter(tag) {
+          var key = (tag || '').toLowerCase();
+          cards.forEach(function (card) {
+            if (key === 'all') {
+              card.style.display = '';
+              return;
+            }
+            var tags = (card.getAttribute('data-tags') || '').toLowerCase();
+            card.style.display = tags.indexOf(key) >= 0 ? '' : 'none';
+          });
+        }
+        filterRow.addEventListener('click', function (e) {
+          var btn = e.target.closest('.filter-btn');
+          if (!btn) return;
+          var key = btn.getAttribute('data-filter') || 'all';
+          setActive(btn);
+          applyFilter(key);
+        });
+      })();
+
+      (function () {
+        var grid = document.querySelector('.experience-grid');
+        var button = document.getElementById('experienceLoadMore');
+        var lessButton = document.getElementById('experienceLoadLess');
+        if (!grid || !button || !lessButton) return;
+        var cards = Array.prototype.slice.call(grid.querySelectorAll('.project-card'));
+        var initialCount = 4;
+        var visibleCount = initialCount;
+
+        function updateVisibility() {
+          cards.forEach(function (card, index) {
+            card.style.display = index < visibleCount ? '' : 'none';
+          });
+          if (cards.length <= initialCount) {
+            button.style.display = 'none';
+            lessButton.style.display = 'none';
+          } else if (visibleCount >= cards.length) {
+            button.style.display = 'none';
+            lessButton.style.display = '';
+          } else {
+            button.style.display = '';
+            lessButton.style.display = 'none';
+          }
+        }
+
+        button.addEventListener('click', function () {
+          visibleCount = cards.length;
+          updateVisibility();
+        });
+
+        lessButton.addEventListener('click', function () {
+          visibleCount = initialCount;
+          updateVisibility();
+        });
+
+        updateVisibility();
+      })();
+    </script>
   </body>
 </html>

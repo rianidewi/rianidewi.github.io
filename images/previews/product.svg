@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-label="Product landing preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff4e9"/>
+      <stop offset="1" stop-color="#ffd9bf"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1260" height="760" rx="34" fill="#ffffff" stroke="#f1d3bf"/>
+
+  <rect x="140" y="150" width="420" height="48" rx="24" fill="#2a211b"/>
+  <rect x="140" y="215" width="360" height="18" rx="9" fill="#b9a99c"/>
+  <rect x="140" y="245" width="300" height="18" rx="9" fill="#c8b9ac"/>
+  <rect x="140" y="290" width="180" height="44" rx="22" fill="#f27a2c"/>
+
+  <rect x="140" y="370" width="520" height="340" rx="26" fill="#fff6ef" stroke="#f1d3bf"/>
+  <rect x="180" y="410" width="220" height="260" rx="22" fill="#ffffff" stroke="#f1d3bf"/>
+  <rect x="430" y="410" width="200" height="260" rx="22" fill="#ffffff" stroke="#f1d3bf"/>
+  <rect x="200" y="440" width="160" height="14" rx="7" fill="#c8b9ac"/>
+
+  <rect x="760" y="160" width="520" height="520" rx="30" fill="#fff0e4" stroke="#f1d3bf"/>
+  <rect x="800" y="210" width="240" height="240" rx="26" fill="#ffffff" stroke="#f1d3bf"/>
+  <rect x="1060" y="210" width="180" height="240" rx="26" fill="#ffffff" stroke="#f1d3bf"/>
+  <circle cx="920" cy="330" r="70" fill="#f27a2c"/>
+  <rect x="820" y="470" width="360" height="140" rx="22" fill="#ffffff" stroke="#f1d3bf"/>
+</svg>
