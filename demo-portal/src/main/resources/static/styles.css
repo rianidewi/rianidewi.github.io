@@ -29,6 +29,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .bg-orb {
   position: fixed;
   border-radius: 50%;
