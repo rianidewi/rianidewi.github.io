@@ -12,7 +12,7 @@
     <div class="bg-orb orb-2"></div>
     <div class="bg-grid"></div>
 
-    <header class="site-header">
+    <header class="site-header" data-mobile-nav="closed">
       <div class="brand">
         <span class="brand-mark">RD</span>
         <div>
@@ -20,7 +20,10 @@
           <p class="brand-subtitle">Software Developer</p>
         </div>
       </div>
-      <nav class="site-nav">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">
+        Menu
+      </button>
+      <nav class="site-nav" id="siteNav">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="/portfolio/demo">Try Demo</a>
@@ -280,6 +283,24 @@
       <p>&copy; 2026 Riani Dewi. Built with care and clarity.</p>
     </footer>
     <script>
+      (function () {
+        var header = document.querySelector('.site-header');
+        var toggle = document.querySelector('.nav-toggle');
+        var nav = document.getElementById('siteNav');
+        if (!header || !toggle || !nav) return;
+        toggle.addEventListener('click', function () {
+          var isOpen = header.getAttribute('data-mobile-nav') === 'open';
+          header.setAttribute('data-mobile-nav', isOpen ? 'closed' : 'open');
+          toggle.setAttribute('aria-expanded', String(!isOpen));
+        });
+        nav.addEventListener('click', function (e) {
+          if (e.target.tagName === 'A') {
+            header.setAttribute('data-mobile-nav', 'closed');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      })();
+
       (function () {
         var filterRow = document.getElementById('personalFilters');
         if (!filterRow) return;
