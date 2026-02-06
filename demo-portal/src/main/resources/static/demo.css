@@ -659,19 +659,22 @@ main {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-    padding: 18px 5vw;
+    padding: 14px 5vw;
   }
 
   nav {
     flex-wrap: wrap;
+    gap: 8px;
   }
 
   .nav-link {
     max-width: 100%;
+    padding: 6px 10px;
+    font-size: 0.8rem;
   }
 
   main {
-    padding: 32px 6vw 72px;
+    padding: 24px 6vw 60px;
     overflow-x: hidden;
   }
 
@@ -710,8 +713,8 @@ main {
   }
 
   .card {
-    padding: 14px;
-    border-radius: 14px;
+    padding: 12px;
+    border-radius: 12px;
     max-width: 100%;
   }
 
@@ -724,7 +727,7 @@ main {
   }
 
   .form input {
-    padding: 7px 9px;
+    padding: 6px 8px;
     font-size: 0.85rem;
   }
 
@@ -738,7 +741,7 @@ main {
   }
 
   .btn {
-    padding: 8px 12px;
+    padding: 7px 10px;
     font-size: 0.85rem;
   }
 
@@ -760,17 +763,22 @@ main {
 
   .table {
     display: block;
-    overflow-x: auto;
+    overflow-x: visible;
   }
 
   .table th,
   .table td {
-    white-space: nowrap;
+    white-space: normal;
   }
 
   .table th,
   .table td {
-    padding: 8px 8px;
+    padding: 6px 6px;
+    font-size: 0.8rem;
+  }
+
+  .table th {
+    font-size: 0.75rem;
   }
 
   .detail-table th,
@@ -805,7 +813,7 @@ main {
 
   .stage-pill,
   .detail-stage {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 
   .detail-card .list-header {
