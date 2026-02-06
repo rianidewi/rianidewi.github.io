@@ -761,6 +761,36 @@ main {
     padding: 8px 8px;
   }
 
+  .detail-table th,
+  .detail-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .detail-table th {
+    width: 100%;
+    border-bottom: none;
+    padding-bottom: 6px;
+  }
+
+  .detail-table td {
+    padding-top: 0;
+  }
+
+  .detail-table tr {
+    display: block;
+    padding: 8px 0;
+  }
+
+  .detail-table tr + tr th,
+  .detail-table tr + tr td {
+    border-top: none;
+  }
+
+  .detail-extra {
+    display: block;
+  }
+
   .stage-pill,
   .detail-stage {
     font-size: 0.8rem;
