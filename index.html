@@ -393,10 +393,18 @@
           toggle.setAttribute('aria-expanded', 'false');
         });
         nav.addEventListener('click', function (e) {
-          if (e.target.tagName === 'A') {
-            header.setAttribute('data-mobile-nav', 'closed');
-            toggle.setAttribute('aria-expanded', 'false');
+          if (e.target.tagName !== 'A') return;
+          var href = e.target.getAttribute('href') || '';
+          if (href.charAt(0) === '#') {
+            e.preventDefault();
+            var target = document.querySelector(href);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              history.replaceState(null, '', href);
+            }
           }
+          header.setAttribute('data-mobile-nav', 'closed');
+          toggle.setAttribute('aria-expanded', 'false');
         });
       })();
 
