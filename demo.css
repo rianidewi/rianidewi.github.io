@@ -652,16 +652,27 @@ main {
 @media (max-width: 720px) {
   body {
     font-size: 14px;
+    overflow-x: hidden;
   }
 
   header {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+    padding: 18px 5vw;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .nav-link {
+    max-width: 100%;
   }
 
   main {
     padding: 32px 6vw 72px;
+    overflow-x: hidden;
   }
 
   .hero h1 {
@@ -701,6 +712,7 @@ main {
   .card {
     padding: 14px;
     border-radius: 14px;
+    max-width: 100%;
   }
 
   .form {
