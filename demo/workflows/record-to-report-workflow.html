@@ -85,23 +85,25 @@
                 <button class="btn secondary" type="button" id="clearBtn">Clear All</button>
               </div>
             </div>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th id="refHeader" class="ref-col">PR Number</th>
-                  <th>Request</th>
-                  <th>Owner</th>
-                  <th>Stage</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="requestTable">
-                <tr>
-                  <td colspan="6" class="muted">No requests yet. Create one above.</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-scroll">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th id="refHeader" class="ref-col">PR Number</th>
+                    <th>Request</th>
+                    <th>Owner</th>
+                    <th>Stage</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="requestTable">
+                  <tr>
+                    <td colspan="6" class="muted">No requests yet. Create one above.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </section>
 
           <section class="card detail-card" id="detailCard" hidden>
