@@ -831,16 +831,6 @@ main {
   }
 }
 
-@media (max-width: 980px) {
-  .app-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .app-side {
-    position: static;
-  }
-}
-
 /* Intramart-style demo form */
 .intramart {
   background: #e6e6e6;
