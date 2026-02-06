@@ -1103,17 +1103,20 @@ pre {
   }
 
   .contact-cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
   }
 
   .contact-card {
     grid-template-columns: 1fr;
     justify-items: center;
     text-align: center;
-    padding: 12px;
-    min-height: 72px;
+    padding: 8px;
+    min-height: auto;
     position: relative;
+    background: transparent;
+    border: none;
+    box-shadow: none;
   }
 
   .contact-card .contact-label,
@@ -1122,8 +1125,8 @@ pre {
   }
 
   .contact-card .contact-icon {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
   }
 
   .contact-card .contact-link {
