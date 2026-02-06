@@ -295,6 +295,12 @@
           header.setAttribute('data-mobile-nav', isOpen ? 'closed' : 'open');
           toggle.setAttribute('aria-expanded', String(!isOpen));
         });
+        document.addEventListener('click', function (e) {
+          if (header.getAttribute('data-mobile-nav') !== 'open') return;
+          if (header.contains(e.target)) return;
+          header.setAttribute('data-mobile-nav', 'closed');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
         nav.addEventListener('click', function (e) {
           if (e.target.tagName === 'A') {
             header.setAttribute('data-mobile-nav', 'closed');
