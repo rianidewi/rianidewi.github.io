@@ -1228,4 +1228,16 @@ pre {
   .contact-cards {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+
+  .filter-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+    padding-bottom: 6px;
+  }
+
+  .filter-btn {
+    white-space: nowrap;
+  }
 }
