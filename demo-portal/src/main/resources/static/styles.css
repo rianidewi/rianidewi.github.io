@@ -165,7 +165,6 @@ html {
 }
 
 .theme-toggle {
-  margin-left: 16px;
   border: 1px solid var(--stroke);
   background: var(--surface-soft);
   color: var(--ink);
@@ -1180,6 +1179,9 @@ pre {
   border-top: 1px solid var(--stroke);
   position: relative;
   z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
 }
 
 @media (max-width: 720px) {
@@ -1207,11 +1209,6 @@ pre {
     gap: 10px;
     padding-top: 8px;
     display: none;
-  }
-
-  .theme-toggle {
-    margin-left: auto;
-    order: 4;
   }
 
   .hero-actions {
