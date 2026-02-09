@@ -251,7 +251,7 @@ main {
 .workflow-link {
   align-self: flex-start;
   min-width: 0;
-  height: 38px;
+  height: 40px;
   padding: 0 15px;
   border-radius: 10px;
   border: 1px solid #e15a31;
@@ -260,7 +260,7 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.79rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   line-height: 1;
@@ -276,7 +276,7 @@ main {
   align-items: center;
   justify-content: center;
   line-height: 1;
-  transform: translateY(1px);
+  transform: translateY(2px);
 }
 
 .workflow-link:hover {
@@ -1131,9 +1131,9 @@ body.modal-open {
 
   .workflow-link {
     min-width: 0;
-    height: 38px;
+    height: 40px;
     padding: 0 13px;
-    font-size: 0.75rem;
+    font-size: 0.74rem;
     letter-spacing: 0.01em;
     line-height: 1;
   }
