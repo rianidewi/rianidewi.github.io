@@ -10,6 +10,8 @@
   --muted: #5a534f;
   --card: #ffffff;
   --card-grad: linear-gradient(165deg, rgba(255, 255, 255, 0.96), rgba(245, 237, 229, 0.92));
+  --brand-mark-bg: #161513;
+  --brand-mark-ink: #ffffff;
   --stroke: rgba(22, 21, 19, 0.12);
   --shadow: 0 30px 60px rgba(22, 21, 19, 0.12);
   --header-bg: rgba(243, 239, 235, 0.78);
@@ -37,6 +39,8 @@ html[data-theme='dark'] {
   --muted: #aab0ba;
   --card: #262b33;
   --card-grad: linear-gradient(165deg, rgba(46, 52, 62, 0.95), rgba(33, 37, 45, 0.95));
+  --brand-mark-bg: #f0f2f6;
+  --brand-mark-ink: #3a414d;
   --stroke: rgba(255, 255, 255, 0.12);
   --shadow: 0 26px 56px rgba(0, 0, 0, 0.42);
   --header-bg: rgba(26, 27, 32, 0.82);
@@ -140,8 +144,8 @@ html {
   width: 48px;
   height: 48px;
   border-radius: 16px;
-  background: var(--ink);
-  color: #fff;
+  background: var(--brand-mark-bg);
+  color: var(--brand-mark-ink);
   font-weight: 600;
 }
 
