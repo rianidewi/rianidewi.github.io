@@ -927,19 +927,41 @@ main {
     width: 100%;
   }
 
+  .detail-card {
+    padding: 14px;
+    border-radius: 14px;
+    box-shadow: 0 10px 22px rgba(20, 19, 18, 0.08);
+  }
+
   .detail-table th {
     width: 100%;
-    border-bottom: none;
-    padding-bottom: 6px;
+    border: 0;
+    background: transparent;
+    color: #6a615d;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0;
+    margin-bottom: 4px;
   }
 
   .detail-table td {
-    padding-top: 0;
+    border: 0;
+    padding: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #191715;
+    line-height: 1.35;
   }
 
   .detail-table tr {
     display: block;
-    padding: 8px 0;
+    padding: 10px 12px;
+    border: 1px solid rgba(20, 19, 18, 0.08);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(20, 19, 18, 0.05);
   }
 
   .detail-table tr + tr th,
@@ -947,8 +969,14 @@ main {
     border-top: none;
   }
 
+  .detail-table tr + tr {
+    margin-top: 8px;
+  }
+
   .detail-extra {
     display: block;
+    border: 0;
+    padding: 0;
   }
 
   .stage-pill,
@@ -959,15 +987,32 @@ main {
   .detail-card .list-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
   }
 
   .detail-actions {
     width: 100%;
+    margin-top: 14px;
   }
 
   .detail-actions .btn {
     flex: 1 1 0;
+    min-height: 36px;
+  }
+
+  .audit-block details {
+    padding: 10px 12px;
+    background: #fffaf6;
+  }
+
+  .audit-block summary {
+    font-size: 0.82rem;
+  }
+
+  .audit-block li {
+    font-size: 0.78rem;
   }
 }
 
