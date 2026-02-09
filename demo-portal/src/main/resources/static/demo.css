@@ -276,7 +276,8 @@ main {
   align-items: center;
   justify-content: center;
   line-height: 1;
-  transform: translateY(2px);
+  position: relative;
+  top: 3px;
 }
 
 .workflow-link:hover {
