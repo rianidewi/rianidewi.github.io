@@ -160,6 +160,9 @@ main {
 .workflow-card {
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .workflow-card::before {
@@ -179,16 +182,29 @@ main {
 
 .workflow-meta {
   color: var(--muted);
-  margin: 0 0 14px;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.workflow-meta span {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  border: 1px solid rgba(20, 19, 18, 0.14);
+  background: rgba(255, 255, 255, 0.55);
 }
 
 .workflow-link {
-  margin-left: auto;
-  width: 38px;
-  height: 38px;
+  align-self: flex-end;
+  width: 42px;
+  height: 42px;
   border-radius: 999px;
-  border: 1px solid rgba(234, 91, 47, 0.42);
-  background: rgba(234, 91, 47, 0.12);
+  border: 1px solid rgba(234, 91, 47, 0.5);
+  background: rgba(234, 91, 47, 0.16);
   color: var(--accent);
   display: inline-flex;
   align-items: center;
@@ -203,9 +219,10 @@ main {
 }
 
 .workflow-link .icon {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   fill: currentColor;
+  display: block;
 }
 
 .card {
