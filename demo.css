@@ -251,33 +251,26 @@ main {
 .workflow-link {
   align-self: flex-start;
   min-width: 0;
-  height: 40px;
-  padding: 0 15px;
+  min-height: 40px;
+  padding: 11px 15px 9px;
   border-radius: 10px;
   border: 1px solid #e15a31;
   background: linear-gradient(180deg, #f58058 0%, #eb6337 100%);
   color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   line-height: 1;
   white-space: nowrap;
-  vertical-align: middle;
   text-decoration: none;
   box-shadow: 0 8px 16px rgba(234, 91, 47, 0.24);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
 .workflow-link > span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   line-height: 1;
-  position: relative;
-  top: 3px;
 }
 
 .workflow-link:hover {
@@ -1132,8 +1125,8 @@ body.modal-open {
 
   .workflow-link {
     min-width: 0;
-    height: 40px;
-    padding: 0 13px;
+    min-height: 38px;
+    padding: 10px 13px 8px;
     font-size: 0.74rem;
     letter-spacing: 0.01em;
     line-height: 1;
