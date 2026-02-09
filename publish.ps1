@@ -173,7 +173,9 @@ foreach ($p in $experience) {
     $null = $experienceHtml.AppendLine('            </div>')
   }
   $null = $experienceHtml.AppendLine('            <div class="card-actions">')
-  if ($sourceUrl) {
+  if ($slug) {
+    $null = $experienceHtml.AppendLine("              <a class=\"icon-btn code\" href=\"demo/workflows/$slug.html\" title=\"Preview\" aria-label=\"Preview\">&lt;/&gt;</a>")
+  } elseif ($sourceUrl) {
     $null = $experienceHtml.AppendLine("              <a class=\"icon-btn code\" href=\"$sourceUrl\" title=\"Open Source Code\" aria-label=\"Open Source Code\">&lt;/&gt;</a>")
   } else {
     $null = $experienceHtml.AppendLine('              <span class="icon-btn disabled" title="Details soon" aria-label="Details soon">…</span>')
