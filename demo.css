@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Literata:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Literata:wght@500;600&display=swap');
 
 :root {
   --ink: #141312;
@@ -626,13 +626,13 @@ main {
 }
 
 .audit-block summary::after {
-  content: '▾';
+  content: '\25BE';
   float: right;
   color: var(--muted);
 }
 
 .audit-block details[open] summary::after {
-  content: '▴';
+  content: '\25B4';
 }
 
 .audit-block ul {
@@ -661,9 +661,14 @@ main {
 }
 
 @media (max-width: 720px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+  }
+
   body {
     font-size: 14px;
-    overflow-x: hidden;
   }
 
   header {
@@ -690,7 +695,6 @@ main {
 
   main {
     padding: 24px 6vw 60px;
-    overflow-x: hidden;
   }
 
   .hero h1 {
@@ -704,6 +708,7 @@ main {
 
   .app-shell {
     gap: 16px;
+    min-width: 0;
   }
 
   .demo-status {
@@ -717,6 +722,8 @@ main {
 
   .app-grid {
     grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
   }
 
   .app-side {
@@ -735,6 +742,8 @@ main {
     padding: 12px;
     border-radius: 12px;
     max-width: 100%;
+    min-width: 0;
+    width: 100%;
   }
 
   .form {
@@ -753,15 +762,25 @@ main {
   .actions {
     flex-direction: column;
     align-items: stretch;
+    width: 100%;
   }
 
   .actions .btn {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .btn {
     padding: 7px 10px;
     font-size: 0.85rem;
+    white-space: normal;
+    word-break: break-word;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
   }
 
   .list-header {
@@ -783,12 +802,14 @@ main {
   .table-scroll {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    max-width: 100%;
   }
 
   .table {
     display: table;
     width: 100%;
-    min-width: 640px;
+    min-width: 0;
+    table-layout: auto;
   }
 
   .table th,
@@ -804,6 +825,14 @@ main {
 
   .table th {
     font-size: 0.75rem;
+  }
+
+  .table td:last-child {
+    white-space: normal;
+  }
+
+  .table td:last-child .btn {
+    margin-top: 6px;
   }
 
   .detail-table th,
@@ -863,6 +892,8 @@ main {
 
   .app-grid {
     grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
   }
 
   .app-side {

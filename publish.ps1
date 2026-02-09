@@ -33,6 +33,7 @@ $demoPortal = Join-Path $repoPath 'demo-portal'
 $templatePath = Join-Path $demoPortal 'src/main/resources/templates/index.html'
 $appConfigPath = Join-Path $demoPortal 'src/main/resources/application.yml'
 $stylesSrc = Join-Path $demoPortal 'src/main/resources/static/styles.css'
+$demoStylesSrc = Join-Path $demoPortal 'src/main/resources/static/demo.css'
 $imagesSrc = Join-Path $demoPortal 'src/main/resources/static/images'
 $previewsSrc = Join-Path $demoPortal 'src/main/resources/static/images/previews'
 $resumeDir = Join-Path $repoPath 'resume'
@@ -222,7 +223,10 @@ $template = Replace-Section $template $experienceStart $experienceEnd $experienc
 $template | Set-Content -Path $indexOut -Encoding UTF8
 
 Copy-Item -Path $stylesSrc -Destination (Join-Path $repoPath 'styles.css') -Force
+if (Test-Path $demoStylesSrc) {
+  Copy-Item -Path $demoStylesSrc -Destination (Join-Path $repoPath 'demo.css') -Force
+}
 Copy-Item -Path $imagesSrc -Destination (Join-Path $repoPath 'images') -Recurse -Force
 
-Write-Host "Static site updated."`n`nif ($Push) {`n  & git add index.html styles.css images resume`n  & git commit -m $Message`n  & git push`n  Write-Host "Pushed to GitHub."`n}
+Write-Host "Static site updated."`n`nif ($Push) {`n  & git add index.html styles.css demo.css demo images resume publish.ps1`n  & git commit -m $Message`n  & git push`n  Write-Host "Pushed to GitHub."`n}
 
