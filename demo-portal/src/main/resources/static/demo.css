@@ -822,6 +822,28 @@ body.modal-open {
   background: rgba(0, 0, 0, 0.5);
 }
 
+:root[data-theme='dark'] .detail-card {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+:root[data-theme='dark'] .detail-table th {
+  color: #d4c4b8;
+}
+
+:root[data-theme='dark'] .detail-table td {
+  color: #f4ece5;
+}
+
+:root[data-theme='dark'] #requestTable .request-row td::before {
+  color: #d9c9bd;
+}
+
+:root[data-theme='dark'] .detail-icon-btn {
+  background: rgba(255, 138, 91, 0.16);
+  border-color: rgba(255, 138, 91, 0.45);
+  color: #ffb08f;
+}
+
 @media (max-width: 720px) {
   html,
   body {
