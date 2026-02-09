@@ -870,6 +870,34 @@ body.modal-open {
   color: #ffb08f;
 }
 
+:root[data-theme='dark'] .audit-block details {
+  background: linear-gradient(180deg, rgba(255, 138, 91, 0.1) 0%, rgba(255, 138, 91, 0.04) 100%);
+  border-color: rgba(255, 138, 91, 0.3);
+}
+
+:root[data-theme='dark'] .audit-block summary {
+  color: #ffd8c7;
+  font-weight: 700;
+}
+
+:root[data-theme='dark'] .audit-block summary::after {
+  color: #ffc2a8;
+}
+
+:root[data-theme='dark'] .audit-block ul {
+  margin-top: 10px;
+  padding-left: 16px;
+}
+
+:root[data-theme='dark'] .audit-block li {
+  color: #f3e4da;
+  line-height: 1.45;
+}
+
+:root[data-theme='dark'] .audit-block li::marker {
+  color: #ff9c73;
+}
+
 @media (max-width: 720px) {
   html,
   body {
