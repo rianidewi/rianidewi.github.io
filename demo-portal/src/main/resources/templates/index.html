@@ -442,6 +442,107 @@
 
         updateVisibility();
       })();
+
+      (function () {
+        var dock = document.querySelector('.floating-actions');
+        if (!dock) return;
+        if (!window.matchMedia('(max-width: 720px)').matches) return;
+
+        var key = 'rd-floating-actions-pos';
+        var margin = 8;
+        var activeId = null;
+        var startX = 0;
+        var startY = 0;
+        var baseX = 0;
+        var baseY = 0;
+        var moved = false;
+        var suppressClick = false;
+
+        dock.style.touchAction = 'none';
+
+        function clamp(value, min, max) {
+          return Math.max(min, Math.min(max, value));
+        }
+
+        function applyPosition(x, y) {
+          dock.style.left = Math.round(x) + 'px';
+          dock.style.top = Math.round(y) + 'px';
+          dock.style.right = 'auto';
+          dock.style.bottom = 'auto';
+        }
+
+        function clampCurrentPosition() {
+          if (!dock.style.left || !dock.style.top) return;
+          var rect = dock.getBoundingClientRect();
+          var x = clamp(parseFloat(dock.style.left) || rect.left, margin, window.innerWidth - rect.width - margin);
+          var y = clamp(parseFloat(dock.style.top) || rect.top, margin, window.innerHeight - rect.height - margin);
+          applyPosition(x, y);
+        }
+
+        try {
+          var saved = localStorage.getItem(key);
+          if (saved) {
+            var pos = JSON.parse(saved);
+            if (typeof pos.x === 'number' && typeof pos.y === 'number') {
+              applyPosition(pos.x, pos.y);
+              clampCurrentPosition();
+            }
+          }
+        } catch (e) {}
+
+        dock.addEventListener('pointerdown', function (e) {
+          if (e.pointerType !== 'touch') return;
+          activeId = e.pointerId;
+          moved = false;
+          var rect = dock.getBoundingClientRect();
+          startX = e.clientX;
+          startY = e.clientY;
+          baseX = rect.left;
+          baseY = rect.top;
+          dock.classList.add('is-dragging');
+          dock.setPointerCapture(activeId);
+          e.preventDefault();
+        });
+
+        dock.addEventListener('pointermove', function (e) {
+          if (e.pointerId !== activeId) return;
+          var rect = dock.getBoundingClientRect();
+          var dx = e.clientX - startX;
+          var dy = e.clientY - startY;
+          if (Math.abs(dx) > 4 || Math.abs(dy) > 4) moved = true;
+          var nextX = clamp(baseX + dx, margin, window.innerWidth - rect.width - margin);
+          var nextY = clamp(baseY + dy, margin, window.innerHeight - rect.height - margin);
+          applyPosition(nextX, nextY);
+          e.preventDefault();
+        });
+
+        function endDrag(e) {
+          if (e.pointerId !== activeId) return;
+          dock.classList.remove('is-dragging');
+          if (moved) {
+            suppressClick = true;
+            try {
+              localStorage.setItem(key, JSON.stringify({
+                x: parseFloat(dock.style.left) || 0,
+                y: parseFloat(dock.style.top) || 0
+              }));
+            } catch (err) {}
+          }
+          if (dock.hasPointerCapture(activeId)) dock.releasePointerCapture(activeId);
+          activeId = null;
+        }
+
+        dock.addEventListener('pointerup', endDrag);
+        dock.addEventListener('pointercancel', endDrag);
+        dock.addEventListener('click', function (e) {
+          if (!suppressClick) return;
+          e.preventDefault();
+          e.stopPropagation();
+          suppressClick = false;
+        }, true);
+
+        window.addEventListener('resize', clampCurrentPosition);
+      })();
     </script>
   </body>
 </html>

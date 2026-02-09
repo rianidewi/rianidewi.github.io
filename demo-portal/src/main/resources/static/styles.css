@@ -203,6 +203,10 @@ html[data-theme='dark'] .theme-toggle .icon-sun {
   transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.floating-actions.is-dragging {
+  opacity: 0.92;
+}
+
 .floating-btn {
   border: 1px solid rgba(22, 21, 19, 0.16);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(246, 242, 238, 0.82));
@@ -395,6 +399,7 @@ main {
 
 .hero-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 24px;
 }
@@ -408,6 +413,7 @@ main {
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
+  white-space: nowrap;
 }
 
 .btn.primary {
@@ -1357,9 +1363,14 @@ pre {
     box-shadow: none;
   }
 
-  .contact-card .contact-label,
-  .contact-card .contact-value {
+  .contact-card .contact-label {
     display: none;
+  }
+
+  .contact-card .contact-value {
+    position: absolute;
+    inset: 0;
+    margin: 0;
   }
 
   .contact-card .contact-icon {
@@ -1370,7 +1381,9 @@ pre {
   .contact-card .contact-link {
     position: absolute;
     inset: 0;
+    z-index: 2;
     opacity: 0;
+    border: 0;
   }
 
   .filter-row {
