@@ -174,13 +174,6 @@ foreach ($p in $experience) {
   }
   $null = $experienceHtml.AppendLine('            <div class="card-actions">')
   if ($slug) {
-    $null = $experienceHtml.AppendLine("              <a class=\"icon-btn code\" href=\"demo/workflows/$slug.html\" title=\"Preview\" aria-label=\"Preview\">&lt;/&gt;</a>")
-  } elseif ($sourceUrl) {
-    $null = $experienceHtml.AppendLine("              <a class=\"icon-btn code\" href=\"$sourceUrl\" title=\"Open Source Code\" aria-label=\"Open Source Code\">&lt;/&gt;</a>")
-  } else {
-    $null = $experienceHtml.AppendLine('              <span class="icon-btn disabled" title="Details soon" aria-label="Details soon">…</span>')
-  }
-  if ($slug) {
     $null = $experienceHtml.AppendLine("              <a class=\"icon-btn demo\" href=\"demo/workflows/$slug.html\" title=\"Try Demo\" aria-label=\"Try Demo\">")
     $null = $experienceHtml.AppendLine('                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">')
     $null = $experienceHtml.AppendLine('                  <path d="M8 5v14l11-7-11-7z"/>')
