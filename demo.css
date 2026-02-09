@@ -822,6 +822,32 @@ body.modal-open {
   background: rgba(0, 0, 0, 0.5);
 }
 
+:root[data-theme='dark'] .stage-chip.is-done {
+  background: rgba(255, 138, 91, 0.14);
+  border-color: rgba(255, 138, 91, 0.42);
+  color: #ffd3bf;
+}
+
+:root[data-theme='dark'] .stage-chip.is-done .muted {
+  color: #ffc8af;
+}
+
+:root[data-theme='dark'] .stage-chip.is-done::before {
+  background: #ff8a5b;
+  box-shadow: 0 0 0 4px rgba(255, 138, 91, 0.26);
+}
+
+:root[data-theme='dark'] .stage-chip.is-done::after {
+  background: rgba(255, 138, 91, 0.34);
+}
+
+:root[data-theme='dark'] .stage-pill.status-complete,
+:root[data-theme='dark'] .detail-stage.status-complete {
+  background: rgba(255, 138, 91, 0.16);
+  border-color: rgba(255, 138, 91, 0.45);
+  color: #ffbe9f;
+}
+
 :root[data-theme='dark'] .detail-card {
   border-color: rgba(255, 255, 255, 0.14);
 }
