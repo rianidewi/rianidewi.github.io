@@ -62,9 +62,9 @@ header .brand.brand-logo {
 }
 
 header .brand.brand-logo .brand-badge {
-  width: 54px;
-  height: 54px;
-  border-radius: 14px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   background: #f2f4f7;
   color: #4b4f56;
   border: 1px solid rgba(20, 19, 18, 0.08);
@@ -73,7 +73,7 @@ header .brand.brand-logo .brand-badge {
   align-items: center;
   justify-content: center;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.45rem;
+  font-size: 1.2rem;
   font-weight: 600;
   line-height: 1;
 }
@@ -85,7 +85,7 @@ header .brand.brand-logo .brand-copy {
 
 header .brand.brand-logo .brand-copy strong {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 2rem;
+  font-size: 1.45rem;
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: 0.01em;
@@ -94,7 +94,7 @@ header .brand.brand-logo .brand-copy strong {
 
 header .brand.brand-logo .brand-copy small {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.35rem;
+  font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   color: var(--muted);
@@ -232,11 +232,8 @@ main {
   color: var(--muted);
   margin: 0;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 7px;
-  overflow-x: auto;
-  padding-bottom: 2px;
-  scrollbar-width: thin;
 }
 
 .workflow-meta span {
@@ -253,29 +250,30 @@ main {
 
 .workflow-link {
   align-self: flex-start;
-  min-width: 128px;
-  height: 38px;
-  padding: 0 15px;
+  min-width: 134px;
+  height: 40px;
+  padding: 0 16px;
   border-radius: 999px;
-  border: 1px solid rgba(234, 91, 47, 0.55);
-  background: linear-gradient(145deg, rgba(234, 91, 47, 0.22), rgba(234, 91, 47, 0.1));
+  border: 1px solid rgba(234, 91, 47, 0.58);
+  background: linear-gradient(150deg, rgba(234, 91, 47, 0.25), rgba(234, 91, 47, 0.12));
   color: var(--accent);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   justify-content: center;
-  font-size: 0.74rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 10px 18px rgba(234, 91, 47, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
 .workflow-link:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 20px rgba(234, 91, 47, 0.28);
-  background: linear-gradient(145deg, rgba(234, 91, 47, 0.36), rgba(234, 91, 47, 0.15));
+  box-shadow: 0 14px 24px rgba(234, 91, 47, 0.32);
+  background: linear-gradient(150deg, rgba(234, 91, 47, 0.38), rgba(234, 91, 47, 0.17));
+  border-color: rgba(234, 91, 47, 0.72);
 }
 
 .workflow-link .icon {
@@ -984,8 +982,9 @@ body.modal-open {
 
 :root[data-theme='dark'] .workflow-link {
   border-color: rgba(255, 138, 91, 0.5);
-  background: linear-gradient(145deg, rgba(255, 138, 91, 0.24), rgba(255, 138, 91, 0.09));
+  background: linear-gradient(150deg, rgba(255, 138, 91, 0.28), rgba(255, 138, 91, 0.12));
   color: #ffc3a8;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 :root[data-theme='dark'] .workflow-card {
@@ -1113,26 +1112,26 @@ body.modal-open {
   }
 
   header .brand.brand-logo .brand-badge {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    font-size: 1.2rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    font-size: 1rem;
   }
 
   header .brand.brand-logo .brand-copy strong {
-    font-size: 1.7rem;
+    font-size: 1.22rem;
   }
 
   header .brand.brand-logo .brand-copy small {
-    font-size: 1.1rem;
+    font-size: 0.78rem;
   }
 
   .workflow-link {
-    min-width: 118px;
+    min-width: 126px;
     height: 36px;
     padding: 0 12px;
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
   }
 
   main {
