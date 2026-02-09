@@ -31,33 +31,33 @@
       <section class="cards workflow-grid">
         <article class="card workflow-card">
           <h3>Procure-to-Pay (P2P)</h3>
-          <p class="workflow-meta">Requisition ? PO ? GR ? Invoice ? Payment</p>
-          <a class="workflow-link" href="workflows/procure-to-pay-workflow.html">Open Demo</a>
+          <p class="workflow-meta">Requisition -> PO -> GR -> Invoice -> Payment</p>
+          <a class="workflow-link" href="workflows/procure-to-pay-workflow.html" aria-label="Open demo"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7-11-7z"/></svg></a>
         </article>
         <article class="card workflow-card">
           <h3>Order-to-Cash (O2C)</h3>
-          <p class="workflow-meta">Sales Order ? Delivery ? Invoice ? Payment</p>
-          <a class="workflow-link" href="workflows/order-to-cash-workflow.html">Open Demo</a>
+          <p class="workflow-meta">Sales Order -> Delivery -> Invoice -> Payment</p>
+          <a class="workflow-link" href="workflows/order-to-cash-workflow.html" aria-label="Open demo"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7-11-7z"/></svg></a>
         </article>
         <article class="card workflow-card">
           <h3>Record-to-Report (R2R)</h3>
-          <p class="workflow-meta">Journal ? Close ? Financial Reporting</p>
-          <a class="workflow-link" href="workflows/record-to-report-workflow.html">Open Demo</a>
+          <p class="workflow-meta">Journal -> Close -> Financial Reporting</p>
+          <a class="workflow-link" href="workflows/record-to-report-workflow.html" aria-label="Open demo"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7-11-7z"/></svg></a>
         </article>
         <article class="card workflow-card">
           <h3>Hire-to-Retire (H2R)</h3>
-          <p class="workflow-meta">Hiring ? Onboarding ? Payroll ? Offboarding</p>
-          <a class="workflow-link" href="workflows/hire-to-retire-workflow.html">Open Demo</a>
+          <p class="workflow-meta">Hiring -> Onboarding -> Payroll -> Offboarding</p>
+          <a class="workflow-link" href="workflows/hire-to-retire-workflow.html" aria-label="Open demo"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7-11-7z"/></svg></a>
         </article>
         <article class="card workflow-card">
           <h3>Inventory Replenishment</h3>
-          <p class="workflow-meta">Demand ? Reorder ? GR ? Stock Update</p>
-          <a class="workflow-link" href="workflows/inventory-replenishment-workflow.html">Open Demo</a>
+          <p class="workflow-meta">Demand -> Reorder -> GR -> Stock Update</p>
+          <a class="workflow-link" href="workflows/inventory-replenishment-workflow.html" aria-label="Open demo"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7-11-7z"/></svg></a>
         </article>
         <article class="card workflow-card">
           <h3>Returns / RMA</h3>
-          <p class="workflow-meta">Return Request ? Approval ? GR ? Credit Note</p>
-          <a class="workflow-link" href="workflows/returns-rma-workflow.html">Open Demo</a>
+          <p class="workflow-meta">Return Request -> Approval -> GR -> Credit Note</p>
+          <a class="workflow-link" href="workflows/returns-rma-workflow.html" aria-label="Open demo"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7-11-7z"/></svg></a>
         </article>
       </section>
     </main>
@@ -87,18 +87,18 @@
         function readSavedTheme() {
           try {
             var value = localStorage.getItem(key);
-            return value === 'dark' || value === 'light' ? value : 'light';
+            return value === 'dark' || value === 'light' -> value : 'light';
           } catch (e) {
             return 'light';
           }
         }
 
         function applyTheme(theme) {
-          var next = theme === 'dark' ? 'dark' : 'light';
+          var next = theme === 'dark' -> 'dark' : 'light';
           root.setAttribute('data-theme', next);
           if (!button) return;
           var dark = next === 'dark';
-          button.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+          button.setAttribute('aria-label', dark -> 'Switch to light theme' : 'Switch to dark theme');
           button.setAttribute('aria-pressed', String(dark));
         }
 
@@ -106,8 +106,8 @@
 
         if (!button) return;
         button.addEventListener('click', function () {
-          var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-          var next = current === 'dark' ? 'light' : 'dark';
+          var current = root.getAttribute('data-theme') === 'dark' -> 'dark' : 'light';
+          var next = current === 'dark' -> 'light' : 'dark';
           applyTheme(next);
           try {
             localStorage.setItem(key, next);
