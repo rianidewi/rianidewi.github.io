@@ -165,18 +165,7 @@ html {
 }
 
 .theme-toggle {
-  border: 1px solid var(--stroke);
-  background: var(--surface-soft);
-  color: var(--ink);
-  border-radius: 999px;
-  width: 42px;
-  height: 42px;
-  padding: 0;
   line-height: 0;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .theme-toggle .icon {
@@ -197,10 +186,47 @@ html[data-theme='dark'] .theme-toggle .icon-sun {
   display: block;
 }
 
-.contact-theme-toggle {
-  margin-top: 18px;
-  display: flex;
+.floating-actions {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  z-index: 30;
+  display: grid;
+  gap: 10px;
+}
+
+.floating-btn {
+  border: 1px solid var(--stroke);
+  background: var(--surface-soft);
+  color: var(--ink);
+  border-radius: 12px;
+  width: 44px;
+  height: 36px;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.floating-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.18);
+}
+
+.scroll-top-btn {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+}
+
+.scroll-top-btn.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .nav-toggle {
@@ -1252,6 +1278,11 @@ pre {
   .contact-cards {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 10px;
+  }
+
+  .floating-actions {
+    right: 12px;
+    bottom: 16px;
   }
 
   .contact-card {
