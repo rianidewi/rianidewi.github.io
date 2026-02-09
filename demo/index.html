@@ -4,11 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Workflow Hub</title>
-    <link rel="stylesheet" href="../demo.css?v=20260209-16" />
+    <link rel="stylesheet" href="../demo.css?v=20260209-17" />
   </head>
   <body>
     <header>
-      <div class="brand brand-mark">RD</div>
+      <div class="brand brand-logo">
+        <span class="brand-badge">RD</span>
+        <span class="brand-copy">
+          <strong>Riani Dewi</strong>
+          <small>Software Developer</small>
+        </span>
+      </div>
       <nav>
         <a class="nav-link" href="../index.html">
           <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -106,7 +112,7 @@
 
         if (!button) return;
         button.addEventListener('click', function () {
-          var current = root.getAttribute('data-theme') === 'dark' -> 'dark' : 'light';
+          var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
           var next = current === 'dark' ? 'light' : 'dark';
           applyTheme(next);
           try {
