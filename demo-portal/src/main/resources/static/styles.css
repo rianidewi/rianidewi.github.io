@@ -336,7 +336,7 @@ html[data-theme='dark'] .floating-actions {
 main {
   position: relative;
   z-index: 1;
-  padding: 40px 8vw 120px;
+  padding: 40px 8vw 28px;
   display: flex;
   flex-direction: column;
   gap: 120px;
@@ -1286,12 +1286,12 @@ pre {
 
 .site-footer {
   text-align: center;
-  padding: 18px 8vw 24px;
+  padding: 10px 8vw 14px;
   color: var(--muted);
   border-top: 1px solid var(--stroke);
   position: relative;
   z-index: 1;
-  font-size: 0.96rem;
+  font-size: 0.92rem;
 }
 
 @media (max-width: 720px) {
