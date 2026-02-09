@@ -790,13 +790,28 @@ main {
 
   .list-actions {
     width: 100%;
-    flex-direction: column;
-    gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .filter-input {
-    width: 100%;
+    flex: 1 1 auto;
     min-width: 0;
+    height: 36px;
+    border-radius: 999px;
+    padding: 8px 12px;
+    background: #fff;
+  }
+
+  .list-actions #clearBtn {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 84px;
+    padding: 7px 12px;
+    font-size: 0.78rem;
+    line-height: 1;
+    border-radius: 999px;
   }
 
   .table-scroll {
