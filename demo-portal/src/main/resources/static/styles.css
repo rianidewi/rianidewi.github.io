@@ -1286,11 +1286,12 @@ pre {
 
 .site-footer {
   text-align: center;
-  padding: 40px 8vw 60px;
+  padding: 18px 8vw 24px;
   color: var(--muted);
   border-top: 1px solid var(--stroke);
   position: relative;
   z-index: 1;
+  font-size: 0.96rem;
 }
 
 @media (max-width: 720px) {
