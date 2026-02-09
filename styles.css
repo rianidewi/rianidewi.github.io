@@ -2,18 +2,23 @@
 
 :root {
   color-scheme: light;
-  --bg: #f6f2ee;
+  --bg: #f3efeb;
+  --bg-soft: #ebe4dd;
   --ink: #161513;
   --accent: #f95d27;
   --accent-dark: #d44e21;
   --muted: #5a534f;
   --card: #ffffff;
+  --card-grad: linear-gradient(165deg, rgba(255, 255, 255, 0.96), rgba(245, 237, 229, 0.92));
   --stroke: rgba(22, 21, 19, 0.12);
   --shadow: 0 30px 60px rgba(22, 21, 19, 0.12);
-  --header-bg: rgba(246, 242, 238, 0.8);
+  --header-bg: rgba(243, 239, 235, 0.78);
+  --header-bg-strong: rgba(234, 226, 217, 0.78);
   --grid-line: rgba(22, 21, 19, 0.04);
   --orb-1: rgba(249, 93, 39, 0.4);
-  --orb-2: rgba(22, 21, 19, 0.2);
+  --orb-2: rgba(96, 102, 112, 0.2);
+  --bg-accent-wash: rgba(249, 93, 39, 0.14);
+  --bg-cool-wash: rgba(96, 102, 112, 0.12);
   --surface-soft: rgba(255, 255, 255, 0.75);
   --surface-card: rgba(255, 255, 255, 0.72);
   --surface-tint: rgba(249, 93, 39, 0.12);
@@ -24,18 +29,23 @@
 
 html[data-theme='dark'] {
   color-scheme: dark;
-  --bg: #1b1d21;
+  --bg: #1a1b20;
+  --bg-soft: #23262d;
   --ink: #eceff3;
   --accent: #ff7a45;
-  --accent-dark: #ffb08b;
-  --muted: #a5acb6;
-  --card: #24282e;
+  --accent-dark: #ffbf9e;
+  --muted: #aab0ba;
+  --card: #262b33;
+  --card-grad: linear-gradient(165deg, rgba(46, 52, 62, 0.95), rgba(33, 37, 45, 0.95));
   --stroke: rgba(255, 255, 255, 0.12);
   --shadow: 0 26px 56px rgba(0, 0, 0, 0.42);
-  --header-bg: rgba(27, 29, 33, 0.84);
+  --header-bg: rgba(26, 27, 32, 0.82);
+  --header-bg-strong: rgba(39, 43, 52, 0.72);
   --grid-line: rgba(255, 255, 255, 0.05);
   --orb-1: rgba(249, 93, 39, 0.22);
-  --orb-2: rgba(200, 207, 217, 0.14);
+  --orb-2: rgba(130, 140, 156, 0.16);
+  --bg-accent-wash: rgba(255, 122, 69, 0.18);
+  --bg-cool-wash: rgba(130, 140, 156, 0.14);
   --surface-soft: rgba(255, 255, 255, 0.08);
   --surface-card: rgba(255, 255, 255, 0.06);
   --surface-tint: rgba(249, 93, 39, 0.2);
@@ -52,7 +62,10 @@ html[data-theme='dark'] {
 
 body {
   font-family: 'Space Grotesk', sans-serif;
-  background: var(--bg);
+  background:
+    radial-gradient(1200px 700px at 95% -10%, var(--bg-accent-wash), transparent 58%),
+    radial-gradient(1000px 620px at -15% 108%, var(--bg-cool-wash), transparent 56%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
   color: var(--ink);
   min-height: 100vh;
   line-height: 1.6;
@@ -110,7 +123,7 @@ html {
   justify-content: space-between;
   padding: 24px 8vw;
   backdrop-filter: blur(12px);
-  background: var(--header-bg);
+  background: linear-gradient(180deg, var(--header-bg) 0%, var(--header-bg-strong) 100%);
   border-bottom: 1px solid var(--stroke);
 }
 
@@ -336,7 +349,7 @@ main {
 }
 
 .hero-card {
-  background: var(--card);
+  background: var(--card-grad);
   padding: 96px 32px 32px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -412,7 +425,7 @@ main {
 }
 
 .project-card {
-  background: var(--card);
+  background: var(--card-grad);
   padding: 24px;
   border-radius: 20px;
   border: 1px solid var(--stroke);
@@ -635,7 +648,7 @@ main {
 
 .setup-card {
   margin-top: 32px;
-  background: var(--card);
+  background: var(--card-grad);
   padding: 24px;
   border-radius: 20px;
   border: 1px solid var(--stroke);
@@ -677,7 +690,7 @@ pre {
   grid-template-columns: auto 1fr;
   gap: 14px;
   align-items: center;
-  background: var(--surface-card);
+  background: linear-gradient(165deg, var(--surface-card), var(--surface-soft));
   border: 1px solid var(--stroke);
   border-radius: 18px;
   padding: 18px;
@@ -735,7 +748,7 @@ pre {
 }
 
 .admin-table-card {
-  background: var(--card);
+  background: var(--card-grad);
   border-radius: 20px;
   border: 1px solid var(--stroke);
   box-shadow: var(--shadow);
@@ -961,7 +974,7 @@ pre {
 .admin-login-card {
   max-width: 520px;
   margin: 0;
-  background: var(--card);
+  background: var(--card-grad);
   border-radius: 24px;
   padding: 28px;
   box-shadow: var(--shadow);
