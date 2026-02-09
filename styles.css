@@ -196,15 +196,16 @@ html[data-theme='dark'] .theme-toggle .icon-sun {
   gap: 8px;
   padding: 8px;
   border-radius: 16px;
-  border: 1px solid var(--stroke);
-  background: linear-gradient(180deg, var(--surface-soft), var(--surface-card));
-  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(12px);
+  border: 1px solid rgba(22, 21, 19, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.34));
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(10px);
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .floating-btn {
   border: 1px solid rgba(22, 21, 19, 0.16);
-  background: var(--card-grad);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(246, 242, 238, 0.82));
   color: var(--ink);
   border-radius: 10px;
   width: 46px;
@@ -215,7 +216,7 @@ html[data-theme='dark'] .theme-toggle .icon-sun {
   align-items: center;
   justify-content: center;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .floating-btn .icon {
@@ -237,18 +238,47 @@ html[data-theme='dark'] .theme-toggle .icon-sun {
 
 html[data-theme='dark'] .floating-btn {
   border-color: rgba(255, 255, 255, 0.16);
+  background: linear-gradient(180deg, rgba(56, 62, 73, 0.9), rgba(40, 45, 54, 0.86));
+}
+
+html[data-theme='dark'] .floating-actions {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(39, 44, 53, 0.62), rgba(31, 35, 42, 0.46));
 }
 
 .scroll-top-btn {
+  height: 0;
+  padding: 0;
+  border-width: 0;
+  margin: 0;
   opacity: 0;
   pointer-events: none;
   transform: translateY(6px);
+  overflow: hidden;
 }
 
 .scroll-top-btn.is-visible {
+  height: 38px;
+  border-width: 1px;
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
+}
+
+@media (hover: hover) {
+  .floating-actions:not(:hover):not(:focus-within) {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .floating-actions:not(:hover):not(:focus-within) .floating-btn {
+    opacity: 0.42;
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+  }
 }
 
 .nav-toggle {
