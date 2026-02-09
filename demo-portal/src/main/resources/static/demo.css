@@ -130,6 +130,56 @@ main {
   gap: 18px;
 }
 
+.workflow-hub .hub-hero {
+  max-width: 880px;
+}
+
+.workflow-hub .hub-hero h1 {
+  margin-bottom: 6px;
+}
+
+.workflow-grid {
+  margin-top: 4px;
+}
+
+.workflow-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.workflow-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(234, 91, 47, 0.1) 0%, rgba(234, 91, 47, 0.02) 45%, transparent 70%);
+  pointer-events: none;
+}
+
+.workflow-card h3,
+.workflow-card .workflow-meta,
+.workflow-card .workflow-link {
+  position: relative;
+  z-index: 1;
+}
+
+.workflow-meta {
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+
+.workflow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.workflow-link::after {
+  content: '→';
+}
+
 .card {
   background: var(--card);
   border: 1px solid var(--stroke);
