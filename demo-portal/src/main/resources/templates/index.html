@@ -31,6 +31,7 @@
         <a href="/portfolio/demo">Try Demo</a>
         <a href="#contact">Contact</a>
       </nav>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">Dark</button>
     </header>
 
     <main>
@@ -277,6 +278,43 @@
     </footer>
     <script>
       (function () {
+        var root = document.documentElement;
+        var button = document.getElementById('themeToggle');
+        var key = 'rd-theme';
+
+        function readSavedTheme() {
+          try {
+            var value = localStorage.getItem(key);
+            return value === 'dark' || value === 'light' ? value : 'light';
+          } catch (e) {
+            return 'light';
+          }
+        }
+
+        function applyTheme(theme) {
+          var next = theme === 'dark' ? 'dark' : 'light';
+          root.setAttribute('data-theme', next);
+          if (!button) return;
+          var dark = next === 'dark';
+          button.textContent = dark ? 'Light' : 'Dark';
+          button.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+          button.setAttribute('aria-pressed', String(dark));
+        }
+
+        applyTheme(readSavedTheme());
+
+        if (!button) return;
+        button.addEventListener('click', function () {
+          var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+          var next = current === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+          try {
+            localStorage.setItem(key, next);
+          } catch (e) {}
+        });
+      })();
+
+      (function () {
         var header = document.querySelector('.site-header');
         var toggle = document.querySelector('.nav-toggle');
         var nav = document.getElementById('siteNav');
@@ -377,4 +415,3 @@
     </script>
   </body>
 </html>
-

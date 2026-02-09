@@ -10,6 +10,37 @@
   --card: #ffffff;
   --stroke: rgba(22, 21, 19, 0.12);
   --shadow: 0 30px 60px rgba(22, 21, 19, 0.12);
+  --header-bg: rgba(246, 242, 238, 0.8);
+  --grid-line: rgba(22, 21, 19, 0.04);
+  --orb-1: rgba(249, 93, 39, 0.4);
+  --orb-2: rgba(22, 21, 19, 0.2);
+  --surface-soft: rgba(255, 255, 255, 0.75);
+  --surface-card: rgba(255, 255, 255, 0.72);
+  --surface-tint: rgba(249, 93, 39, 0.12);
+  --link-line: rgba(22, 21, 19, 0.3);
+  --preview-bg: #f6efe9;
+  --radius: 24px;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #1b1d21;
+  --ink: #eceff3;
+  --accent: #ff7a45;
+  --accent-dark: #ffb08b;
+  --muted: #a5acb6;
+  --card: #24282e;
+  --stroke: rgba(255, 255, 255, 0.12);
+  --shadow: 0 26px 56px rgba(0, 0, 0, 0.42);
+  --header-bg: rgba(27, 29, 33, 0.84);
+  --grid-line: rgba(255, 255, 255, 0.05);
+  --orb-1: rgba(249, 93, 39, 0.22);
+  --orb-2: rgba(200, 207, 217, 0.14);
+  --surface-soft: rgba(255, 255, 255, 0.08);
+  --surface-card: rgba(255, 255, 255, 0.06);
+  --surface-tint: rgba(249, 93, 39, 0.2);
+  --link-line: rgba(255, 255, 255, 0.35);
+  --preview-bg: #20242a;
   --radius: 24px;
 }
 
@@ -44,7 +75,7 @@ html {
 .orb-1 {
   width: 480px;
   height: 480px;
-  background: radial-gradient(circle, rgba(249, 93, 39, 0.4), transparent 65%);
+  background: radial-gradient(circle, var(--orb-1), transparent 65%);
   top: -120px;
   right: -120px;
 }
@@ -52,7 +83,7 @@ html {
 .orb-2 {
   width: 520px;
   height: 520px;
-  background: radial-gradient(circle, rgba(22, 21, 19, 0.2), transparent 65%);
+  background: radial-gradient(circle, var(--orb-2), transparent 65%);
   bottom: -160px;
   left: -160px;
 }
@@ -61,10 +92,10 @@ html {
   position: fixed;
   inset: 0;
   background-image: linear-gradient(
-      rgba(22, 21, 19, 0.04) 1px,
+      var(--grid-line) 1px,
       transparent 1px
     ),
-    linear-gradient(90deg, rgba(22, 21, 19, 0.04) 1px, transparent 1px);
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 64px 64px;
   pointer-events: none;
   z-index: 0;
@@ -79,7 +110,7 @@ html {
   justify-content: space-between;
   padding: 24px 8vw;
   backdrop-filter: blur(12px);
-  background: rgba(246, 242, 238, 0.8);
+  background: var(--header-bg);
   border-bottom: 1px solid var(--stroke);
 }
 
@@ -114,6 +145,19 @@ html {
 .site-nav {
   display: flex;
   gap: 18px;
+}
+
+.theme-toggle {
+  margin-left: 16px;
+  border: 1px solid var(--stroke);
+  background: var(--surface-soft);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .nav-toggle {
@@ -260,8 +304,8 @@ main {
 }
 
 .meta-card {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(22, 21, 19, 0.08);
+  background: var(--surface-soft);
+  border: 1px solid var(--stroke);
   border-radius: 18px;
   padding: 16px 18px;
   box-shadow: 0 10px 24px rgba(22, 21, 19, 0.08);
@@ -278,7 +322,7 @@ main {
   align-items: center;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(249, 93, 39, 0.12);
+  background: var(--surface-tint);
   color: var(--accent-dark);
   font-weight: 600;
   font-size: 0.9rem;
@@ -385,8 +429,8 @@ main {
 .project-preview {
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(22, 21, 19, 0.12);
-  background: #f6efe9;
+  border: 1px solid var(--stroke);
+  background: var(--preview-bg);
   aspect-ratio: 16 / 10;
   display: flex;
   align-items: center;
@@ -471,8 +515,8 @@ main {
 }
 
 .filter-btn {
-  border: 1px solid rgba(22, 21, 19, 0.2);
-  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--stroke);
+  background: var(--surface-soft);
   color: var(--ink);
   padding: 6px 14px;
   border-radius: 999px;
@@ -504,8 +548,8 @@ main {
   min-width: 160px;
   border-radius: 999px;
   padding: 12px 22px;
-  border: 1px solid rgba(22, 21, 19, 0.18);
-  background: linear-gradient(135deg, #ffffff 0%, #f6ede7 100%);
+  border: 1px solid var(--stroke);
+  background: linear-gradient(135deg, var(--card) 0%, var(--surface-soft) 100%);
   box-shadow: 0 12px 24px rgba(22, 21, 19, 0.12);
   font-weight: 600;
   display: inline-flex;
@@ -521,7 +565,7 @@ main {
   min-width: 160px;
   border-radius: 999px;
   padding: 12px 22px;
-  border: 1px solid rgba(22, 21, 19, 0.18);
+  border: 1px solid var(--stroke);
   background: #1c1b1a;
   color: #fff;
   box-shadow: 0 12px 24px rgba(22, 21, 19, 0.12);
@@ -540,8 +584,8 @@ main {
   width: 40px;
   height: 40px;
   border-radius: 14px;
-  border: 1px solid rgba(22, 21, 19, 0.16);
-  background: #fff;
+  border: 1px solid var(--stroke);
+  background: var(--card);
   color: var(--ink);
   font-weight: 700;
   font-size: 0.85rem;
@@ -560,8 +604,8 @@ main {
 }
 
 .icon-btn.github {
-  background: #fff;
-  border-color: rgba(22, 21, 19, 0.2);
+  background: var(--card);
+  border-color: var(--stroke);
 }
 
 .icon-btn.demo {
@@ -633,8 +677,8 @@ pre {
   grid-template-columns: auto 1fr;
   gap: 14px;
   align-items: center;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(22, 21, 19, 0.08);
+  background: var(--surface-card);
+  border: 1px solid var(--stroke);
   border-radius: 18px;
   padding: 18px;
   box-shadow: 0 14px 28px rgba(22, 21, 19, 0.1);
@@ -647,7 +691,7 @@ pre {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(249, 93, 39, 0.12);
+  background: var(--surface-tint);
   color: var(--accent-dark);
 }
 
@@ -669,7 +713,7 @@ pre {
 }
 
 .contact-link {
-  border-bottom: 1px solid rgba(22, 21, 19, 0.3);
+  border-bottom: 1px solid var(--link-line);
   overflow-wrap: anywhere;
   word-break: break-word;
   display: inline-block;
@@ -682,7 +726,7 @@ pre {
 .contact-link {
   color: var(--ink);
   text-decoration: none;
-  border-bottom: 1px solid rgba(22, 21, 19, 0.3);
+  border-bottom: 1px solid var(--link-line);
 }
 
 .contact-link:hover {
@@ -1146,6 +1190,11 @@ pre {
     gap: 10px;
     padding-top: 8px;
     display: none;
+  }
+
+  .theme-toggle {
+    margin-left: auto;
+    order: 4;
   }
 
   .hero-actions {
