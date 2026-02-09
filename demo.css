@@ -728,24 +728,21 @@ main {
 
   .app-side {
     order: -1;
-    position: sticky;
-    top: 68px;
-    z-index: 6;
+    position: static;
+    z-index: auto;
   }
 
   .stage-list {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 10px;
-    overflow-x: auto;
-    padding-bottom: 2px;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x proximity;
+    margin-top: 8px;
   }
 
   .stage-list .stage-chip {
-    min-width: 220px;
-    flex: 0 0 auto;
-    scroll-snap-align: start;
+    min-width: 0;
+    width: 100%;
+    padding: 10px 12px 10px 40px;
   }
 
   .demo-form .form {
