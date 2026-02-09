@@ -514,9 +514,10 @@
           tbody.innerHTML = '';
           if (list.length === 0) {
             var row = document.createElement('tr');
+            row.className = 'table-empty';
             var cell = document.createElement('td');
             cell.colSpan = columnCount;
-            cell.className = 'muted';
+            cell.className = 'muted table-empty-cell';
             cell.textContent = 'No requests yet. Create one above.';
             row.appendChild(cell);
             tbody.appendChild(row);
@@ -526,9 +527,10 @@
           var filtered = list.filter(function (item) { return matchesFilter(item, query); });
           if (filtered.length === 0) {
             var emptyRow = document.createElement('tr');
+            emptyRow.className = 'table-empty';
             var emptyCell = document.createElement('td');
             emptyCell.colSpan = columnCount;
-            emptyCell.className = 'muted';
+            emptyCell.className = 'muted table-empty-cell';
             emptyCell.textContent = 'No matching requests.';
             emptyRow.appendChild(emptyCell);
             tbody.appendChild(emptyRow);
@@ -545,10 +547,17 @@
               '<td>' + item.owner + '</td>' +
               '<td><span class="detail-stage">' + item.stage + '</span></td>' +
               '<td><span class="' + statusClass + '">' + statusText + '</span></td>' +
-              '<td>' +
+              '<td class="action-cell">' +
                 '<button class="btn secondary" data-action="view" data-id="' + item.id + '">View</button>' +
                 '<button class="btn secondary danger" data-action="delete" data-id="' + item.id + '">Delete</button>' +
               '</td>';
+            row.className = 'request-row';
+            var labels = refField
+              ? [refField.label || 'Reference', 'Request', 'Owner', 'Stage', 'Status', 'Action']
+              : ['Request', 'Owner', 'Stage', 'Status', 'Action'];
+            Array.prototype.slice.call(row.querySelectorAll('td')).forEach(function (cell, index) {
+              cell.setAttribute('data-label', labels[index] || '');
+            });
             tbody.appendChild(row);
           });
 

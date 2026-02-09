@@ -834,6 +834,77 @@ main {
   .table td:last-child .btn {
     margin-top: 6px;
   }
+  .table thead {
+    display: none;
+  }
+
+  #requestTable {
+    display: grid;
+    gap: 12px;
+  }
+
+  #requestTable .request-row {
+    display: block;
+    border: 1px solid rgba(20, 19, 18, 0.1);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 8px 18px rgba(20, 19, 18, 0.08);
+    padding: 8px 10px;
+  }
+
+  #requestTable .request-row td {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    border: 0;
+    padding: 6px 0;
+    font-size: 0.82rem;
+  }
+
+  #requestTable .request-row td::before {
+    content: attr(data-label);
+    flex: 0 0 86px;
+    font-weight: 700;
+    color: #4e4642;
+    line-height: 1.2;
+  }
+
+  #requestTable .request-row td > * {
+    min-width: 0;
+  }
+
+  #requestTable .request-row .detail-stage {
+    font-size: 0.78rem;
+  }
+
+  #requestTable .request-row .action-cell {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding-top: 8px;
+  }
+
+  #requestTable .request-row .action-cell::before {
+    display: none;
+  }
+
+  #requestTable .request-row .action-cell .btn {
+    width: 100%;
+    margin: 0;
+    font-size: 0.78rem;
+    padding: 6px 8px;
+  }
+
+  #requestTable .table-empty {
+    display: table-row;
+  }
+
+  #requestTable .table-empty .table-empty-cell {
+    display: table-cell;
+    padding: 12px 0;
+    border: 0;
+  }
 
   .detail-table th,
   .detail-table td {
