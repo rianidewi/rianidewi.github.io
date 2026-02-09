@@ -169,11 +169,38 @@ html {
   background: var(--surface-soft);
   color: var(--ink);
   border-radius: 999px;
-  padding: 8px 14px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  line-height: 1;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  line-height: 0;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle .icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+html[data-theme='dark'] .theme-toggle .icon-moon {
+  display: none;
+}
+
+html[data-theme='dark'] .theme-toggle .icon-sun {
+  display: block;
+}
+
+.contact-theme-toggle {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
 }
 
 .nav-toggle {
@@ -1179,9 +1206,6 @@ pre {
   border-top: 1px solid var(--stroke);
   position: relative;
   z-index: 1;
-  display: grid;
-  justify-items: center;
-  gap: 14px;
 }
 
 @media (max-width: 720px) {
