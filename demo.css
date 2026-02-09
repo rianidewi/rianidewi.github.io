@@ -311,7 +311,7 @@ main {
   gap: 8px;
 }
 
-.card a {
+.card a:not(.workflow-link) {
   display: inline-block;
   margin-top: 10px;
   font-weight: 600;
